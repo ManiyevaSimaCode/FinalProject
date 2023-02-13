@@ -1,0 +1,9 @@
+﻿global using Core.DAL.Abstract;
+global using Core.DAL.Concrete;
+global using Core.Entities.Concrete;
+global using DAL.Abstract;
+global using DAL.Context;
+global using Entities.Concrete;
+global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
