@@ -1,0 +1,68 @@
+﻿@model List<SubCategoryGetDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">SubCategories</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Category Name
+                            </th>
+                            <th>
+                                Created Date
+                            </th>
+                            <th>
+                                Operations
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(CategoryGetDto categoryGetDto in Model)
+                        {
+                        <!-- Basic accordion -->
+<div class="accordion" id="accordionExample">
+
+  <!-- Item -->
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne @categoryGetDto.Name</button>
+    </h2>
+    <div class="accordion-collapse collapse show" id="collapseOne" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">This is the first item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.</div>
+    </div>
+  </div>
+</div>
+                            <td>
+                                @categoryGetDto.CreatedDate
+                            </td>
+
+                            <td>
+                                <a type="button" asp-action="Update" asp-controller="Category" asp-area="Manage" asp-route-Id=@categoryGetDto.Id  class="btn btn-primary btn-icon-text">
+                                    <i class="ti-pencil btn-icon-prepend"></i>
+
+                                </a>
+
+                                <a type="button" asp-action="Remove" asp-controller="Category" asp-area="Manage" asp-route-Id=@categoryGetDto.Id   class="btn btn-danger btn-icon-text">
+                                    <i class="ti-trash btn-icon-prepend"></i>
+                                </a>
+                            </td>
+
+                        </tr>
+
+                        }
+                       
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

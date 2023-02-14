@@ -4,6 +4,7 @@
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
+           
             builder.Property(c => c.Name).IsRequired().HasMaxLength(255);
             builder.Property(c => c.isDeleted).HasDefaultValue(false);
             builder.Property(c => c.CreatedDate).HasDefaultValue(DateTime.Now);

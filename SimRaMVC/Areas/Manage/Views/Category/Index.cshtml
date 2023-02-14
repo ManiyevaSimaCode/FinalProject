@@ -35,12 +35,12 @@
                             </td>
 
                             <td>
-                                <a type="button" asp-action="Edit" asp-controller="Category" asp-area="Manage" class="btn btn-primary btn-icon-text">
+                                <a type="button" asp-action="Update" asp-controller="Category" asp-area="Manage" asp-route-Id=@categoryGetDto.Id  class="btn btn-primary btn-icon-text">
                                     <i class="ti-pencil btn-icon-prepend"></i>
 
                                 </a>
 
-                                <a type="button" asp-action="Remove" asp-controller="Category" asp-area="Manage"  class="btn btn-danger btn-icon-text">
+                                <a type="button" asp-action="Remove" asp-controller="Category" asp-area="Manage" asp-route-Id=@categoryGetDto.Id   class="btn btn-danger btn-icon-text">
                                     <i class="ti-trash btn-icon-prepend"></i>
                                 </a>
                             </td>

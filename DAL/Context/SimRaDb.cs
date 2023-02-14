@@ -11,6 +11,7 @@ namespace DAL.Context
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            
             base.OnModelCreating(builder);
         }
         public DbSet<Category>Categories { get; set; }

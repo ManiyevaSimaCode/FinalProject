@@ -14,7 +14,7 @@ namespace BLL.Utilities.Validations.FluentValidations.Subcategory
                .MinimumLength(5).
                 MaximumLength(255).
                 Must(ValidName)
-                .WithMessage("Enter valid Category Name ");
+                .WithMessage("Enter valid SubCategory Name ");
         }
         private bool ValidName(string name)
         {

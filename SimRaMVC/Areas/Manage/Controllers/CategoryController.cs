@@ -55,6 +55,31 @@ namespace SimRaMVC.Areas.Manage.Controllers
 
         }
 
+       
+        public  async Task<IActionResult> Update(int id)
+        {
+            CategoryUpdateDto categoryUpdateDto = new CategoryUpdateDto
+            {
+                categoryGetDto =await _categoryService.GetByIdAsync(id),
+            };
+            return View(categoryUpdateDto);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(CategoryUpdateDto categoryUpdateDto)
+        {
+            await _categoryService.UpdateAsync(categoryUpdateDto.categoryGetDto.Id, categoryUpdateDto.categoryPostDto);
+
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> Remove(int id)
+        {
+
+            await _categoryService.DeleteByIdAsync(id);
+            return RedirectToAction("Index");
+
+        }
 
 
 

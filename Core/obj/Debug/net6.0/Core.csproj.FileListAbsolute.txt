@@ -16,7 +16,6 @@ C:\Users\Rafael Mehdiyev\Desktop\Simra Project\SimRaFinalProject\Core\obj\Debug\
 C:\Users\Rafael Mehdiyev\Desktop\Simra Project\SimRaFinalProject\Core\obj\Debug\net6.0\Core.genruntimeconfig.cache
 C:\Users\Rafael Mehdiyev\Desktop\Simra Project\SimRaFinalProject\Core\obj\Debug\net6.0\ref\Core.dll
 C:\Users\User\Desktop\SimRaFinalProject\Core\bin\Debug\net6.0\Core.deps.json
-C:\Users\User\Desktop\SimRaFinalProject\Core\bin\Debug\net6.0\Core.runtimeconfig.json
 C:\Users\User\Desktop\SimRaFinalProject\Core\bin\Debug\net6.0\Core.dll
 C:\Users\User\Desktop\SimRaFinalProject\Core\bin\Debug\net6.0\Core.pdb
 C:\Users\User\Desktop\SimRaFinalProject\Core\bin\Debug\net6.0\Entities.dll
@@ -30,5 +29,4 @@ C:\Users\User\Desktop\SimRaFinalProject\Core\obj\Debug\net6.0\Core.csproj.CopyCo
 C:\Users\User\Desktop\SimRaFinalProject\Core\obj\Debug\net6.0\Core.dll
 C:\Users\User\Desktop\SimRaFinalProject\Core\obj\Debug\net6.0\refint\Core.dll
 C:\Users\User\Desktop\SimRaFinalProject\Core\obj\Debug\net6.0\Core.pdb
-C:\Users\User\Desktop\SimRaFinalProject\Core\obj\Debug\net6.0\Core.genruntimeconfig.cache
 C:\Users\User\Desktop\SimRaFinalProject\Core\obj\Debug\net6.0\ref\Core.dll

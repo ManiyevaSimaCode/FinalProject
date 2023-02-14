@@ -47,10 +47,10 @@ namespace Core.DAL.Concrete
 
         }
 
-        public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> exp, params string[] includes)
+        public  Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> exp, params string[] includes)
         {
             IQueryable<TEntity> query = GetQuery(includes);
-            return await query.Where(exp).FirstOrDefaultAsync();
+             return query.Where(exp).FirstOrDefaultAsync();
 
         }
 
@@ -61,10 +61,10 @@ namespace Core.DAL.Concrete
 
         }
 
-        //public async Task SaveAsync()
-        //{
-        // await  _context.SaveChangesAsync();
-        //}
+        public async Task SaveAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
 
         public void Update(TEntity entity)
         {

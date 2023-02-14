@@ -4,6 +4,7 @@
     {
         public ICategoryRepository CategoryRepository { get;  }
         public ISubCategoryRepository SubCategoryRepository { get; }
-        Task SaveAsync();
+        public IParameterRepository ParameterRepository { get; }
+        //Task SaveAsync();
     }
 }

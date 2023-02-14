@@ -16,7 +16,7 @@ namespace BLL.Concrete
         public async Task CreateAsync(SubCategoryPostDto subcategoryPostDto)
         {
             await _unitOfWork.SubCategoryRepository.CreateAsync(_mapper.Map<SubCategory>(subcategoryPostDto));
-            await _unitOfWork.SaveAsync();
+            //await _unitOfWork.SaveAsync();
         }
 
         public async Task DeleteByIdAsync(int id)
@@ -27,7 +27,7 @@ namespace BLL.Concrete
                 throw new NotFoundException(Messages.SubcategoryNotFound);
             }
             _unitOfWork.SubCategoryRepository.Delete(subcategory);
-            await _unitOfWork.SaveAsync();
+            //await _unitOfWork.SaveAsync();
         }
 
         public async Task<List<SubCategoryGetDto>> GetAllAsync()
@@ -61,6 +61,14 @@ namespace BLL.Concrete
 
         }
 
+        public async Task<List<SubCategoryGetDto>> GetCategorySubCategories(int categoryId, int subCategoryId)
+        {
+
+            var category = await _unitOfWork.CategoryRepository.GetAsync(c => c.Id == categoryId && !c.isDeleted);
+            return _mapper.Map<List<SubCategoryGetDto>>(category.SubCategories.Where(s => s.Id.ToString().Contains(subCategoryId.ToString())));
+        }
+
+
         public async Task UpdateAsync(int id, SubCategoryPostDto categoryPostDto)
         {
             SubCategory subcategory = await _unitOfWork.SubCategoryRepository.GetAsync(c => c.Id == id && !c.isDeleted);
@@ -69,7 +77,7 @@ namespace BLL.Concrete
                 throw new NotFoundException(Messages.SubcategoryNotFound);
             }
             _unitOfWork.SubCategoryRepository.Update(subcategory);
-            await _unitOfWork.SaveAsync();
+            //await _unitOfWork.SaveAsync();
         }
     }
 }

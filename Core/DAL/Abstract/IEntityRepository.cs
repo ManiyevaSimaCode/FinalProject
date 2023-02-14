@@ -9,7 +9,7 @@
         Task<TEntity>GetAsync(Expression<Func<TEntity, bool>>exp,params string[] includes);
         Task<bool>IsExistAsync(Expression<Func<TEntity, bool>>exp);
         Task CreateAsync(TEntity entity);
-        //Task SaveAsync();
+        Task SaveAsync();
         void Update(TEntity entity);
         void Delete(TEntity entity);
        

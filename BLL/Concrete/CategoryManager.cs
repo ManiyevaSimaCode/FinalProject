@@ -14,7 +14,8 @@ public class CategoryManager : ICategoryService
     public async Task CreateAsync(CategoryPostDto categoryPostDto)
     {
         await _unitOfWork.CategoryRepository.CreateAsync(_mapper.Map<Category>(categoryPostDto));
-        await _unitOfWork.SaveAsync();
+        await _unitOfWork.CategoryRepository.SaveAsync();
+
     }
 
     public async Task DeleteByIdAsync(int id)
@@ -25,7 +26,7 @@ public class CategoryManager : ICategoryService
             throw new NotFoundException(Messages.CategoryNotFound);
         }
         _unitOfWork.CategoryRepository.Delete(category);
-        await _unitOfWork.SaveAsync();
+        await _unitOfWork.CategoryRepository.SaveAsync();
     }
 
     public async Task<List<CategoryGetDto>> GetAllAsync()
@@ -55,6 +56,7 @@ public class CategoryManager : ICategoryService
         {
             throw new NotFoundException(Messages.CategoryNotFound);
         }
+        
         return _mapper.Map<CategoryGetDto>(category);
 
     }
@@ -66,7 +68,11 @@ public class CategoryManager : ICategoryService
         {
             throw new NotFoundException(Messages.CategoryNotFound);
         }
-        _unitOfWork.CategoryRepository.Update(category);
-        await _unitOfWork.SaveAsync();
+        _mapper.Map(categoryPostDto, category);
+         _unitOfWork.CategoryRepository.Update(category);
+        await _unitOfWork.CategoryRepository.SaveAsync();
+
+
+
     }
 }

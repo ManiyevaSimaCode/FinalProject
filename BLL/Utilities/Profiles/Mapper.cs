@@ -1,4 +1,5 @@
-﻿using Entities.DTOs.SubCategory;
+﻿using Entities.DTOs.Parameter;
+using Entities.DTOs.SubCategory;
 
 namespace BLL.Utilities.Profiles
 {
@@ -13,6 +14,11 @@ namespace BLL.Utilities.Profiles
             //Subcategory
             CreateMap<SubCategory, SubCategoryGetDto>().ReverseMap();
             CreateMap<SubCategoryPostDto, SubCategory>().ReverseMap();
+
+            //Parameter
+            CreateMap<Parameter, ParameterGetDto>().ReverseMap();
+            CreateMap<ParameterPostDto, Parameter>().ReverseMap();
+
         }
     }
 }
