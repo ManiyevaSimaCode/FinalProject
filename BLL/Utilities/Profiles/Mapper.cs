@@ -1,4 +1,5 @@
-﻿using Entities.DTOs.Parameter;
+﻿using Entities.DTOs.Company;
+using Entities.DTOs.Parameter;
 using Entities.DTOs.SubCategory;
 
 namespace BLL.Utilities.Profiles
@@ -18,6 +19,10 @@ namespace BLL.Utilities.Profiles
             //Parameter
             CreateMap<Parameter, ParameterGetDto>().ReverseMap();
             CreateMap<ParameterPostDto, Parameter>().ReverseMap();
+
+            //Company
+            CreateMap<Company, CompanyGetDto>().ReverseMap();
+            CreateMap<CompanyPostDto, Company>().ReverseMap();
 
         }
     }

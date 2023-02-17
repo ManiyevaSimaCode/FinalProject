@@ -1,0 +1,68 @@
+﻿@model List<CompanyGetDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">Categories</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Company Image
+                            </th>
+                            <th>
+                                Company Name
+                            </th>
+                            <th>
+                                Created Date
+                            </th>
+                            <th>
+                                Operations
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (CompanyGetDto companyGetDto in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="d-block bg-white border">
+                                        @*<img class="d-block" src="~/Assets/img/shop/brands/@companyGetDto.ImagePath" style="width: 200px;" alt="Brand">*@
+                                        <img src="~/Assets/img/shop/brands/@companyGetDto.ImagePath" style='height:200px; width:200px; object-fit: contain'/>
+                                    </div>
+                                </td>
+                                <td>
+                                    @companyGetDto.Name
+                                </td>
+                                <td>
+                                    @companyGetDto.CreatedDate
+                                </td>
+
+                                <td>
+                                    <a type="button" asp-action="Update" asp-controller="Company" asp-area="Manage" asp-route-Id=@companyGetDto.Id class="btn btn-primary btn-icon-text">
+                                        <i class="ti-pencil btn-icon-prepend"></i>
+
+                                    </a>
+
+                                    <a type="button" asp-action="Remove" asp-controller="Company" asp-area="Manage" asp-route-Id=@companyGetDto.Id class="btn btn-danger btn-icon-text">
+                                        <i class="ti-trash btn-icon-prepend"></i>
+                                    </a>
+                                </td>
+
+                            </tr>
+
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

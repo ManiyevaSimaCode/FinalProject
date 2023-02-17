@@ -1,4 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@using BLL.Abstract
+@using BLL.Concrete
+@using Entities.DTOs.Category
+
+@inject ILayoutService layoutManager
+@{
+    List<CategoryGetDto> categoryGetDtos = await layoutManager.GetCategorySubCategories();
+}
+
+<!DOCTYPE html>
 <html lang="en">
 
 <!-- Mirrored from cartzilla.createx.studio/home-electronics-store.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 29 Jan 2023 19:24:30 GMT -->
@@ -273,16 +282,11 @@
                             <input class="form-control rounded-start w-100" type="text" placeholder="Search for products">
                             <select class="form-select flex-shrink-0" style="width: 10.5rem;">
                                 <option>All categories</option>
-                                <option>Computers</option>
-                                <option>Smartphones</option>
-                                <option>TV, Video, Audio</option>
-                                <option>Cameras</option>
-                                <option>Headphones</option>
-                                <option>Wearables</option>
-                                <option>Printers</option>
-                                <option>Video Games</option>
-                                <option>Home Music</option>
-                                <option>Data Storage</option>
+                                @foreach (var item in categoryGetDtos)
+                                {
+                                    <option>@item.Name</option>
+                                }
+
                             </select>
                         </div>
                         <!-- Toolbar-->
@@ -312,400 +316,392 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle ps-lg-0" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside"><i class="ci-menu align-middle mt-n1 me-2"></i>Departments</a>
                                     <ul class="dropdown-menu">
-                                        <li class="dropdown mega-dropdown">
-                                            <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="ci-laptop opacity-60 fs-lg mt-n1 me-2"></i>Computers &amp; Accessories</a>
-                                            <div class="dropdown-menu p-0">
-                                                <div class="d-flex flex-wrap flex-sm-nowrap px-2">
-                                                    <div class="mega-dropdown-column pt-4 pb-0 py-sm-4 px-3">
-                                                        <div class="widget widget-links">
-                                                            <h6 class="fs-base mb-3">Computers</h6>
-                                                            <ul class="widget-list">
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Laptops &amp; Tablets</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Desktop Computers</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Computer External Components</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Computer Internal Components</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Networking Products (NAS)</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Single Board Computers</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Desktop Barebones</a></li>
-                                                            </ul>
+                                        @foreach (var item in categoryGetDtos)
+                                        {
+                                            <li class="dropdown mega-dropdown">
+                                                <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="ci-laptop opacity-60 fs-lg mt-n1 me-2"></i>@item.Name</a>
+                                                <div class="dropdown-menu p-0">
+                                                    <div class="d-flex flex-wrap flex-sm-nowrap px-2">
+                                                        <div class="mega-dropdown-column pt-4 pb-0 py-sm-4 px-3">
+                                                            @foreach (var subCategory in categoryGetDtos)
+                                                            {
+                                                                <div class="widget widget-links">
+
+                                                                    <h6 class="fs-base mb-3"> @item.Name</h6>
+                                                                    <ul class="widget-list">
+
+                                                                        <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">@subCategory.SubCategoryGetDtos</a></li>
+
+
+                                                                    </ul>
+
+
+                                                                </div>
+
+                                                            }
                                                         </div>
-                                                    </div>
-                                                    <div class="mega-dropdown-column py-4 px-3">
-                                                        <div class="widget widget-links">
-                                                            <h6 class="fs-base mb-3">Accessories</h6>
-                                                            <ul class="widget-list">
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Monitors</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Bags, Cases &amp; Sleeves</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Batteries</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Charges &amp; Adapters</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Cooling Pads</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Mounts</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Replacement Screens</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Security Locks</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Stands</a></li>
-                                                            </ul>
+                                                        <div class="mega-dropdown-column d-none d-lg-block py-4 text-center">
+                                                            <a class="d-block mb-2" href="#"><img src="~/Assets/img/shop/departments/07.jpg" alt="Computers &amp; Accessories"></a>
+                                                            <div class="fs-sm mb-3">Starting from <span class='fw-medium'>$149.<small>80</small></span></div><a class="btn btn-primary btn-shadow btn-sm" href="#">See offers<i class="ci-arrow-right fs-xs ms-1"></i></a>
                                                         </div>
-                                                    </div>
-                                                    <div class="mega-dropdown-column d-none d-lg-block py-4 text-center">
-                                                        <a class="d-block mb-2" href="#"><img src="~/Assets/img/shop/departments/07.jpg" alt="Computers &amp; Accessories"></a>
-                                                        <div class="fs-sm mb-3">Starting from <span class='fw-medium'>$149.<small>80</small></span></div><a class="btn btn-primary btn-shadow btn-sm" href="#">See offers<i class="ci-arrow-right fs-xs ms-1"></i></a>
+
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </li>
-                                        <li class="dropdown mega-dropdown">
+                                            </li>
+                                        }
+                                        @*           <li class="dropdown mega-dropdown">
                                             <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="ci-mobile opacity-60 fs-lg mt-n1 me-2"></i>Smartphones &amp; Tablets</a>
                                             <div class="dropdown-menu p-0">
-                                                <div class="d-flex flex-wrap flex-md-nowrap px-2">
-                                                    <div class="mega-dropdown-column pt-4 pb-0 py-sm-4 px-3">
-                                                        <div class="widget widget-links mb-3">
-                                                            <h6 class="fs-base mb-3">Smartphones</h6>
-                                                            <ul class="widget-list">
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Apple iPhone</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Android Smartphones</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Phablets</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="widget widget-links">
-                                                            <h6 class="fs-base">Tablets</h6>
-                                                            <ul class="widget-list">
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Apple iPad</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Android Tablets</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Tablets with Keyboard</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mega-dropdown-column py-4 px-3">
-                                                        <div class="widget widget-links">
-                                                            <h6 class="fs-base mb-3">Accessories</h6>
-                                                            <ul class="widget-list">
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Accessory Kits</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Batteries &amp; Battery Packs</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Cables</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Car Accessories</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Charges &amp; Power Adapters</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">FM Transmitters</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Lens Attachments</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Mounts &amp; Stands</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Repair Kits</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Replacement Parts</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Styluses</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mega-dropdown-column d-none d-lg-block py-4 text-center">
-                                                        <a class="d-block mb-2" href="#"><img src="~/Assets/img/shop/departments/09.jpg" alt="Smartphones &amp; Tablets"></a>
-                                                        <div class="fs-sm mb-3">Starting from <span class='fw-medium'>$127.<small>00</small></span></div><a class="btn btn-primary btn-shadow btn-sm" href="#">See offers<i class="ci-arrow-right fs-xs ms-1"></i></a>
-                                                    </div>
-                                                </div>
+                                            <div class="d-flex flex-wrap flex-md-nowrap px-2">
+                                            <div class="mega-dropdown-column pt-4 pb-0 py-sm-4 px-3">
+                                            <div class="widget widget-links mb-3">
+                                            <h6 class="fs-base mb-3">Smartphones</h6>
+                                            <ul class="widget-list">
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Apple iPhone</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Android Smartphones</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Phablets</a></li>
+                                            </ul>
                                             </div>
-                                        </li>
-                                        <li class="dropdown mega-dropdown">
+                                            <div class="widget widget-links">
+                                            <h6 class="fs-base">Tablets</h6>
+                                            <ul class="widget-list">
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Apple iPad</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Android Tablets</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Tablets with Keyboard</a></li>
+                                            </ul>
+                                            </div>
+                                            </div>
+                                            <div class="mega-dropdown-column py-4 px-3">
+                                            <div class="widget widget-links">
+                                            <h6 class="fs-base mb-3">Accessories</h6>
+                                            <ul class="widget-list">
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Accessory Kits</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Batteries &amp; Battery Packs</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Cables</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Car Accessories</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Charges &amp; Power Adapters</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">FM Transmitters</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Lens Attachments</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Mounts &amp; Stands</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Repair Kits</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Replacement Parts</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Styluses</a></li>
+                                            </ul>
+                                            </div>
+                                            </div>
+                                            <div class="mega-dropdown-column d-none d-lg-block py-4 text-center">
+                                            <a class="d-block mb-2" href="#"><img src="~/Assets/img/shop/departments/09.jpg" alt="Smartphones &amp; Tablets"></a>
+                                            <div class="fs-sm mb-3">Starting from <span class='fw-medium'>$127.<small>00</small></span></div><a class="btn btn-primary btn-shadow btn-sm" href="#">See offers<i class="ci-arrow-right fs-xs ms-1"></i></a>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </li>
+                                            <li class="dropdown mega-dropdown">
                                             <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="ci-monitor opacity-60 fs-lg mt-n1 me-2"></i>TV, Video &amp; Audio</a>
                                             <div class="dropdown-menu p-0">
-                                                <div class="d-flex flex-wrap flex-md-nowrap px-2">
-                                                    <div class="mega-dropdown-column pt-4 pb-0 py-sm-4 px-3">
-                                                        <div class="widget widget-links">
-                                                            <h6 class="fs-base mb-3">Television &amp; Video</h6>
-                                                            <ul class="widget-list">
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">TV Sets</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Home Theater Systems</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">DVD Players &amp; Recorders</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Blue-ray Players &amp; Recorders</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">HD DVD Players &amp; Recorders</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">DVD-VCR Combos</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">DTV Converters</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">AV Receivers</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">AV Amplifiers</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Projectors</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Projection Screens</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Satelite Television</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mega-dropdown-column pt-0 pb-4 py-sm-4 px-3">
-                                                        <div class="widget widget-links">
-                                                            <ul class="widget-list">
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">TV-DTD Combos</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Sound Systems</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Home Cinema Systems</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Streaming Media Players</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">VCRs</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Video Glasses</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Lens Attachments</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mega-dropdown-column d-none d-lg-block py-4 text-center">
-                                                        <a class="d-block mb-2" href="#"><img src="~/Assets/img/shop/departments/08.jpg" alt="TV, Video &amp; Audio"></a>
-                                                        <div class="fs-sm mb-3">Starting from <span class='fw-medium'>$78.<small>00</small></span></div><a class="btn btn-primary btn-shadow btn-sm" href="#">See offers<i class="ci-arrow-right fs-xs ms-1"></i></a>
-                                                    </div>
-                                                </div>
+                                            <div class="d-flex flex-wrap flex-md-nowrap px-2">
+                                            <div class="mega-dropdown-column pt-4 pb-0 py-sm-4 px-3">
+                                            <div class="widget widget-links">
+                                            <h6 class="fs-base mb-3">Television &amp; Video</h6>
+                                            <ul class="widget-list">
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">TV Sets</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Home Theater Systems</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">DVD Players &amp; Recorders</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Blue-ray Players &amp; Recorders</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">HD DVD Players &amp; Recorders</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">DVD-VCR Combos</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">DTV Converters</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">AV Receivers</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">AV Amplifiers</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Projectors</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Projection Screens</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Satelite Television</a></li>
+                                            </ul>
                                             </div>
-                                        </li>
-                                        <li class="dropdown mega-dropdown">
+                                            </div>
+                                            <div class="mega-dropdown-column pt-0 pb-4 py-sm-4 px-3">
+                                            <div class="widget widget-links">
+                                            <ul class="widget-list">
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">TV-DTD Combos</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Sound Systems</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Home Cinema Systems</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Streaming Media Players</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">VCRs</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Video Glasses</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Lens Attachments</a></li>
+                                            </ul>
+                                            </div>
+                                            </div>
+                                            <div class="mega-dropdown-column d-none d-lg-block py-4 text-center">
+                                            <a class="d-block mb-2" href="#"><img src="~/Assets/img/shop/departments/08.jpg" alt="TV, Video &amp; Audio"></a>
+                                            <div class="fs-sm mb-3">Starting from <span class='fw-medium'>$78.<small>00</small></span></div><a class="btn btn-primary btn-shadow btn-sm" href="#">See offers<i class="ci-arrow-right fs-xs ms-1"></i></a>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </li>
+                                            <li class="dropdown mega-dropdown">
                                             <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="ci-camera opacity-60 fs-lg mt-n1 me-2"></i>Cameras, Photo &amp; Video</a>
                                             <div class="dropdown-menu p-0">
-                                                <div class="d-flex flex-wrap flex-md-nowrap px-2">
-                                                    <div class="mega-dropdown-column pt-4 pb-0 py-sm-4 px-3">
-                                                        <div class="widget widget-links">
-                                                            <h6 class="fs-base mb-3">Cameras &amp; Lenses</h6>
-                                                            <ul class="widget-list">
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Point &amp; Shoot Digital Cameras</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">DSLR Cameras</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Mirrorless Cameras</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Body Mounted Cameras</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Camcorders</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Camcorder Lenses</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Camera Lenses</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Macro &amp; Ringlight Flashes</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Shoe Mount Flashes</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Tripods &amp; Monopods</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Video Studio</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mega-dropdown-column py-4 px-3">
-                                                        <div class="widget widget-links">
-                                                            <h6 class="fs-base mb-3">Accessories</h6>
-                                                            <ul class="widget-list">
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Bags &amp; Cases</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Binoculars &amp; Scopes</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Batteries &amp; Chargers</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Cables &amp; Cords</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Camcorder Accessories</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Cleaning Equipment</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Protector Foils</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Filters &amp; Accessories</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Remote Controls</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Rain Covers</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Viewfinders</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mega-dropdown-column d-none d-lg-block py-4 text-center">
-                                                        <a class="d-block mb-2" href="#"><img src="~/Assets/img/shop/departments/10.jpg" alt="Cameras, Photo &amp; Video"></a>
-                                                        <div class="fs-sm mb-3">Starting from <span class='fw-medium'>$210.<small>00</small></span></div><a class="btn btn-primary btn-shadow btn-sm" href="#">See offers<i class="ci-arrow-right fs-xs ms-1"></i></a>
-                                                    </div>
-                                                </div>
+                                            <div class="d-flex flex-wrap flex-md-nowrap px-2">
+                                            <div class="mega-dropdown-column pt-4 pb-0 py-sm-4 px-3">
+                                            <div class="widget widget-links">
+                                            <h6 class="fs-base mb-3">Cameras &amp; Lenses</h6>
+                                            <ul class="widget-list">
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Point &amp; Shoot Digital Cameras</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">DSLR Cameras</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Mirrorless Cameras</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Body Mounted Cameras</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Camcorders</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Camcorder Lenses</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Camera Lenses</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Macro &amp; Ringlight Flashes</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Shoe Mount Flashes</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Tripods &amp; Monopods</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Video Studio</a></li>
+                                            </ul>
                                             </div>
-                                        </li>
-                                        <li class="dropdown mega-dropdown">
+                                            </div>
+                                            <div class="mega-dropdown-column py-4 px-3">
+                                            <div class="widget widget-links">
+                                            <h6 class="fs-base mb-3">Accessories</h6>
+                                            <ul class="widget-list">
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Bags &amp; Cases</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Binoculars &amp; Scopes</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Batteries &amp; Chargers</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Cables &amp; Cords</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Camcorder Accessories</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Cleaning Equipment</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Protector Foils</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Filters &amp; Accessories</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Remote Controls</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Rain Covers</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Viewfinders</a></li>
+                                            </ul>
+                                            </div>
+                                            </div>
+                                            <div class="mega-dropdown-column d-none d-lg-block py-4 text-center">
+                                            <a class="d-block mb-2" href="#"><img src="~/Assets/img/shop/departments/10.jpg" alt="Cameras, Photo &amp; Video"></a>
+                                            <div class="fs-sm mb-3">Starting from <span class='fw-medium'>$210.<small>00</small></span></div><a class="btn btn-primary btn-shadow btn-sm" href="#">See offers<i class="ci-arrow-right fs-xs ms-1"></i></a>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </li>
+                                            <li class="dropdown mega-dropdown">
                                             <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="ci-earphones opacity-60 fs-lg mt-n1 me-2"></i>Headphones</a>
                                             <div class="dropdown-menu p-0">
-                                                <div class="d-flex flex-wrap flex-md-nowrap px-2">
-                                                    <div class="mega-dropdown-column pt-4 pb-0 py-sm-4 px-3">
-                                                        <div class="widget widget-links">
-                                                            <h6 class="fs-base mb-3">Headphones</h6>
-                                                            <ul class="widget-list">
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Earbud Headphones</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Over-Ear Headphones</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">On-Ear Headphones</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Bluetooth Headphones</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Sports &amp; Fitness Headphones</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Noise-Cancelling Headphones</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mega-dropdown-column py-4 px-3">
-                                                        <div class="widget widget-links">
-                                                            <h6 class="fs-base mb-3">Accessories</h6>
-                                                            <ul class="widget-list">
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Cases &amp; Sleeves</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Cables &amp; Cords</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Ear Pads</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Repair Kits</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Cleaning Equipment</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mega-dropdown-column d-none d-lg-block py-4 text-center">
-                                                        <a class="d-block mb-2" href="#"><img src="~/Assets/img/shop/departments/11.jpg" alt="Headphones"></a>
-                                                        <div class="fs-sm mb-3">Starting from <span class='fw-medium'>$35.<small>99</small></span></div><a class="btn btn-primary btn-shadow btn-sm" href="#">See offers<i class="ci-arrow-right fs-xs ms-1"></i></a>
-                                                    </div>
-                                                </div>
+                                            <div class="d-flex flex-wrap flex-md-nowrap px-2">
+                                            <div class="mega-dropdown-column pt-4 pb-0 py-sm-4 px-3">
+                                            <div class="widget widget-links">
+                                            <h6 class="fs-base mb-3">Headphones</h6>
+                                            <ul class="widget-list">
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Earbud Headphones</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Over-Ear Headphones</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">On-Ear Headphones</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Bluetooth Headphones</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Sports &amp; Fitness Headphones</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Noise-Cancelling Headphones</a></li>
+                                            </ul>
                                             </div>
-                                        </li>
-                                        <li class="dropdown mega-dropdown">
+                                            </div>
+                                            <div class="mega-dropdown-column py-4 px-3">
+                                            <div class="widget widget-links">
+                                            <h6 class="fs-base mb-3">Accessories</h6>
+                                            <ul class="widget-list">
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Cases &amp; Sleeves</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Cables &amp; Cords</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Ear Pads</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Repair Kits</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Cleaning Equipment</a></li>
+                                            </ul>
+                                            </div>
+                                            </div>
+                                            <div class="mega-dropdown-column d-none d-lg-block py-4 text-center">
+                                            <a class="d-block mb-2" href="#"><img src="~/Assets/img/shop/departments/11.jpg" alt="Headphones"></a>
+                                            <div class="fs-sm mb-3">Starting from <span class='fw-medium'>$35.<small>99</small></span></div><a class="btn btn-primary btn-shadow btn-sm" href="#">See offers<i class="ci-arrow-right fs-xs ms-1"></i></a>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </li>
+                                            <li class="dropdown mega-dropdown">
                                             <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="ci-watch opacity-60 fs-lg mt-n1 me-2"></i>Wearable Electronics</a>
                                             <div class="dropdown-menu p-0">
-                                                <div class="d-flex flex-wrap flex-md-nowrap px-2">
-                                                    <div class="mega-dropdown-column py-4 px-3">
-                                                        <div class="widget widget-links">
-                                                            <h6 class="fs-base mb-3">Gadgets</h6>
-                                                            <ul class="widget-list">
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Smartwatches</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Fitness Trackers</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Smart Glasses</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Rings</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Virtual Reality</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Clips, Arm &amp; Wristbands</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Accessories</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mega-dropdown-column d-none d-lg-block py-4 text-center">
-                                                        <a class="d-block mb-2" href="#"><img src="~/Assets/img/shop/departments/12.jpg" alt="Wearable Electronics"></a>
-                                                        <div class="fs-sm mb-3">Starting from <span class='fw-medium'>$79.<small>50</small></span></div><a class="btn btn-primary btn-shadow btn-sm" href="#">See offers<i class="ci-arrow-right fs-xs ms-1"></i></a>
-                                                    </div>
-                                                </div>
+                                            <div class="d-flex flex-wrap flex-md-nowrap px-2">
+                                            <div class="mega-dropdown-column py-4 px-3">
+                                            <div class="widget widget-links">
+                                            <h6 class="fs-base mb-3">Gadgets</h6>
+                                            <ul class="widget-list">
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Smartwatches</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Fitness Trackers</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Smart Glasses</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Rings</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Virtual Reality</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Clips, Arm &amp; Wristbands</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Accessories</a></li>
+                                            </ul>
                                             </div>
-                                        </li>
-                                        <li class="dropdown mega-dropdown">
+                                            </div>
+                                            <div class="mega-dropdown-column d-none d-lg-block py-4 text-center">
+                                            <a class="d-block mb-2" href="#"><img src="~/Assets/img/shop/departments/12.jpg" alt="Wearable Electronics"></a>
+                                            <div class="fs-sm mb-3">Starting from <span class='fw-medium'>$79.<small>50</small></span></div><a class="btn btn-primary btn-shadow btn-sm" href="#">See offers<i class="ci-arrow-right fs-xs ms-1"></i></a>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </li>
+                                            <li class="dropdown mega-dropdown">
                                             <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="ci-printer opacity-60 fs-lg mt-n1 me-2"></i>Printers &amp; Ink</a>
                                             <div class="dropdown-menu p-0">
-                                                <div class="d-flex flex-wrap flex-md-nowrap px-2">
-                                                    <div class="mega-dropdown-column pt-4 pb-0 py-sm-4 px-3">
-                                                        <div class="widget widget-links mb-3">
-                                                            <h6 class="fs-base mb-3">By type</h6>
-                                                            <ul class="widget-list">
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">All-in-One</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Copying</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Faxing</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Photo Printing</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Printing Only</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Scanning</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="widget widget-links">
-                                                            <h6 class="fs-base mb-3">Scanners</h6>
-                                                            <ul class="widget-list">
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Business Card Scanners</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Document Scanners</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Flatbed &amp; Photo Scanners</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Slide &amp; Negative Scanners</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mega-dropdown-column py-4 px-3">
-                                                        <div class="widget widget-links">
-                                                            <h6 class="fs-base">Printers</h6>
-                                                            <ul class="widget-list">
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Dot Matrix Printers</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Inkjet Printers</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Label Printers</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Laser Printers</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Photo Printers</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Wide Format Printers</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Plotter Printers</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mega-dropdown-column d-none d-lg-block py-4 text-center">
-                                                        <a class="d-block mb-2" href="#"><img src="~/Assets/img/shop/departments/13.jpg" alt="Printers &amp; Ink"></a>
-                                                        <div class="fs-sm mb-3">Starting from <span class='fw-medium'>$54.<small>00</small></span></div><a class="btn btn-primary btn-shadow btn-sm" href="#">See offers<i class="ci-arrow-right fs-xs ms-1"></i></a>
-                                                    </div>
-                                                </div>
+                                            <div class="d-flex flex-wrap flex-md-nowrap px-2">
+                                            <div class="mega-dropdown-column pt-4 pb-0 py-sm-4 px-3">
+                                            <div class="widget widget-links mb-3">
+                                            <h6 class="fs-base mb-3">By type</h6>
+                                            <ul class="widget-list">
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">All-in-One</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Copying</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Faxing</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Photo Printing</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Printing Only</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Scanning</a></li>
+                                            </ul>
                                             </div>
-                                        </li>
-                                        <li class="dropdown mega-dropdown">
+                                            <div class="widget widget-links">
+                                            <h6 class="fs-base mb-3">Scanners</h6>
+                                            <ul class="widget-list">
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Business Card Scanners</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Document Scanners</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Flatbed &amp; Photo Scanners</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Slide &amp; Negative Scanners</a></li>
+                                            </ul>
+                                            </div>
+                                            </div>
+                                            <div class="mega-dropdown-column py-4 px-3">
+                                            <div class="widget widget-links">
+                                            <h6 class="fs-base">Printers</h6>
+                                            <ul class="widget-list">
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Dot Matrix Printers</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Inkjet Printers</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Label Printers</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Laser Printers</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Photo Printers</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Wide Format Printers</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Plotter Printers</a></li>
+                                            </ul>
+                                            </div>
+                                            </div>
+                                            <div class="mega-dropdown-column d-none d-lg-block py-4 text-center">
+                                            <a class="d-block mb-2" href="#"><img src="~/Assets/img/shop/departments/13.jpg" alt="Printers &amp; Ink"></a>
+                                            <div class="fs-sm mb-3">Starting from <span class='fw-medium'>$54.<small>00</small></span></div><a class="btn btn-primary btn-shadow btn-sm" href="#">See offers<i class="ci-arrow-right fs-xs ms-1"></i></a>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </li>
+                                            <li class="dropdown mega-dropdown">
                                             <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="ci-joystick opacity-60 fs-lg mt-n1 me-2"></i>Video Games</a>
                                             <div class="dropdown-menu p-0">
-                                                <div class="d-flex flex-wrap flex-md-nowrap px-2">
-                                                    <div class="mega-dropdown-column pt-4 pb-0 py-sm-4 px-3">
-                                                        <div class="widget widget-links">
-                                                            <h6 class="fs-base mb-3">Games &amp; Hardware</h6>
-                                                            <ul class="widget-list">
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Video Games</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">PlayStation 4</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">PlayStation 3</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Xbox One</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Xbox 360</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Nintendo Switch</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Wii U</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Wii</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">PC</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Mac</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Nintendo 3DS &amp; 2DS</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Nintendo DS</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mega-dropdown-column pt-0 pb-4 py-sm-4 px-3">
-                                                        <div class="widget widget-links">
-                                                            <ul class="widget-list">
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">PlayStation Vita</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Sony PSP</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Retro Gaming</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Microconsoles</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Accessories</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Digital Games</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mega-dropdown-column d-none d-lg-block py-4 text-center">
-                                                        <a class="d-block mb-2" href="#"><img src="~/Assets/img/shop/departments/14.jpg" alt="Video Games"></a>
-                                                        <div class="fs-sm mb-3">Starting from <span class='fw-medium'>$19.<small>00</small></span></div><a class="btn btn-primary btn-shadow btn-sm" href="#">See offers<i class="ci-arrow-right fs-xs ms-1"></i></a>
-                                                    </div>
-                                                </div>
+                                            <div class="d-flex flex-wrap flex-md-nowrap px-2">
+                                            <div class="mega-dropdown-column pt-4 pb-0 py-sm-4 px-3">
+                                            <div class="widget widget-links">
+                                            <h6 class="fs-base mb-3">Games &amp; Hardware</h6>
+                                            <ul class="widget-list">
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Video Games</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">PlayStation 4</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">PlayStation 3</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Xbox One</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Xbox 360</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Nintendo Switch</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Wii U</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Wii</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">PC</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Mac</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Nintendo 3DS &amp; 2DS</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Nintendo DS</a></li>
+                                            </ul>
                                             </div>
-                                        </li>
-                                        <li class="dropdown mega-dropdown">
+                                            </div>
+                                            <div class="mega-dropdown-column pt-0 pb-4 py-sm-4 px-3">
+                                            <div class="widget widget-links">
+                                            <ul class="widget-list">
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">PlayStation Vita</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Sony PSP</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Retro Gaming</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Microconsoles</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Accessories</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Digital Games</a></li>
+                                            </ul>
+                                            </div>
+                                            </div>
+                                            <div class="mega-dropdown-column d-none d-lg-block py-4 text-center">
+                                            <a class="d-block mb-2" href="#"><img src="~/Assets/img/shop/departments/14.jpg" alt="Video Games"></a>
+                                            <div class="fs-sm mb-3">Starting from <span class='fw-medium'>$19.<small>00</small></span></div><a class="btn btn-primary btn-shadow btn-sm" href="#">See offers<i class="ci-arrow-right fs-xs ms-1"></i></a>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </li>
+                                            <li class="dropdown mega-dropdown">
                                             <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="ci-speaker opacity-60 fs-lg mt-n1 me-2"></i>Speakers &amp; Home Music</a>
                                             <div class="dropdown-menu p-0">
-                                                <div class="d-flex flex-wrap flex-md-nowrap px-2">
-                                                    <div class="mega-dropdown-column pt-4 pb-0 py-sm-4 px-3">
-                                                        <div class="widget widget-links">
-                                                            <h6 class="fs-base mb-3">Speakers</h6>
-                                                            <ul class="widget-list">
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Bluetooth Speakers</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Bookshelf Speakers</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Ceiling &amp; In-Wall Speakers</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Center-Channel Speakers</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Floorstanding Speakers</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Outdoor Speakers</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Satellite Speakers</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Sound Bars</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Subwoofers</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Surround Sound Systems</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mega-dropdown-column py-4 px-3">
-                                                        <div class="widget widget-links">
-                                                            <h6 class="fs-base mb-3">Home Audio</h6>
-                                                            <ul class="widget-list">
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Home Theater</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Wireless &amp; Streaming Audio</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Stereo System Components</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Compact Radios &amp; Stereos</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Home Audio Accessories</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mega-dropdown-column d-none d-lg-block py-4 text-center">
-                                                        <a class="d-block mb-2" href="#"><img src="~/Assets/img/shop/departments/16.jpg" alt="Speakers &amp; Home Music"></a>
-                                                        <div class="fs-sm mb-3">Starting from <span class='fw-medium'>$43.<small>00</small></span></div><a class="btn btn-primary btn-shadow btn-sm" href="#">See offers<i class="ci-arrow-right fs-xs ms-1"></i></a>
-                                                    </div>
-                                                </div>
+                                            <div class="d-flex flex-wrap flex-md-nowrap px-2">
+                                            <div class="mega-dropdown-column pt-4 pb-0 py-sm-4 px-3">
+                                            <div class="widget widget-links">
+                                            <h6 class="fs-base mb-3">Speakers</h6>
+                                            <ul class="widget-list">
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Bluetooth Speakers</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Bookshelf Speakers</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Ceiling &amp; In-Wall Speakers</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Center-Channel Speakers</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Floorstanding Speakers</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Outdoor Speakers</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Satellite Speakers</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Sound Bars</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Subwoofers</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Surround Sound Systems</a></li>
+                                            </ul>
                                             </div>
-                                        </li>
-                                        <li class="dropdown mega-dropdown">
+                                            </div>
+                                            <div class="mega-dropdown-column py-4 px-3">
+                                            <div class="widget widget-links">
+                                            <h6 class="fs-base mb-3">Home Audio</h6>
+                                            <ul class="widget-list">
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Home Theater</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Wireless &amp; Streaming Audio</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Stereo System Components</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Compact Radios &amp; Stereos</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Home Audio Accessories</a></li>
+                                            </ul>
+                                            </div>
+                                            </div>
+                                            <div class="mega-dropdown-column d-none d-lg-block py-4 text-center">
+                                            <a class="d-block mb-2" href="#"><img src="~/Assets/img/shop/departments/16.jpg" alt="Speakers &amp; Home Music"></a>
+                                            <div class="fs-sm mb-3">Starting from <span class='fw-medium'>$43.<small>00</small></span></div><a class="btn btn-primary btn-shadow btn-sm" href="#">See offers<i class="ci-arrow-right fs-xs ms-1"></i></a>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </li>
+                                            <li class="dropdown mega-dropdown">
                                             <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="ci-server opacity-60 fs-lg mt-n1 me-2"></i>HDD/SSD Data Storage</a>
                                             <div class="dropdown-menu p-0">
-                                                <div class="d-flex flex-wrap flex-md-nowrap px-2">
-                                                    <div class="mega-dropdown-column py-4 px-3">
-                                                        <div class="widget widget-links">
-                                                            <h6 class="fs-base mb-3">Data Storage</h6>
-                                                            <ul class="widget-list">
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">External Hard Drives</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">External Solid State Drives</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">External Zip Drives</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Floppy &amp; Tape Drives</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Internal Hard Drives</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Internal Solid State Drives</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Network Attached Storage</a></li>
-                                                                <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">USB Flash Drives</a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mega-dropdown-column d-none d-lg-block py-4 text-center">
-                                                        <a class="d-block mb-2" href="#"><img src="~/Assets/img/shop/departments/15.jpg" alt="HDD/SSD Data Storage"></a>
-                                                        <div class="fs-sm mb-3">Starting from <span class='fw-medium'>$21.<small>60</small></span></div><a class="btn btn-primary btn-shadow btn-sm" href="#">See offers<i class="ci-arrow-right fs-xs ms-1"></i></a>
-                                                    </div>
-                                                </div>
+                                            <div class="d-flex flex-wrap flex-md-nowrap px-2">
+                                            <div class="mega-dropdown-column py-4 px-3">
+                                            <div class="widget widget-links">
+                                            <h6 class="fs-base mb-3">Data Storage</h6>
+                                            <ul class="widget-list">
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">External Hard Drives</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">External Solid State Drives</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">External Zip Drives</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Floppy &amp; Tape Drives</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Internal Hard Drives</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Internal Solid State Drives</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">Network Attached Storage</a></li>
+                                            <li class="widget-list-item pb-1"><a class="widget-list-link" href="#">USB Flash Drives</a></li>
+                                            </ul>
                                             </div>
-                                        </li>
+                                            </div>
+                                            <div class="mega-dropdown-column d-none d-lg-block py-4 text-center">
+                                            <a class="d-block mb-2" href="#"><img src="~/Assets/img/shop/departments/15.jpg" alt="HDD/SSD Data Storage"></a>
+                                            <div class="fs-sm mb-3">Starting from <span class='fw-medium'>$21.<small>60</small></span></div><a class="btn btn-primary btn-shadow btn-sm" href="#">See offers<i class="ci-arrow-right fs-xs ms-1"></i></a>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </li>*@
                                     </ul>
                                 </li>
                             </ul>
@@ -762,15 +758,15 @@
                             </div>
                             <div class="form-text text-light opacity-50">*Subscribe to our newsletter to receive early discount offers, updates and new products info.</div>
                             <div class="subscription-status"></div>
-                                     <div class="mt-4">
-                        <div class="d-flex">
-                            <i class="ci-support text-primary" style="font-size: 2.25rem;"></i>
-                            <div class="ps-3">
-                                <h6 class="fs-base text-light mb-1">24/7 customer support</h6>
-                                <p class="mb-0 fs-ms text-light opacity-50">Friendly 24/7 customer support</p>
+                            <div class="mt-4">
+                                <div class="d-flex">
+                                    <i class="ci-support text-primary" style="font-size: 2.25rem;"></i>
+                                    <div class="ps-3">
+                                        <h6 class="fs-base text-light mb-1">24/7 customer support</h6>
+                                        <p class="mb-0 fs-ms text-light opacity-50">Friendly 24/7 customer support</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
                         </form>
                     </div>
@@ -781,34 +777,35 @@
         <div class="pt-5 bg-darker">
             <div class="container">
                 <div class="row pb-3">
-                              <div class="col-md-6 text-center text-md-start mb-4">
-              <div class="text-nowrap mb-4"><a class="d-inline-block align-middle mt-n1 me-3" href="#"><img class="d-block" src="~/Assets/img/footer-logo-light.png" width="117" alt="Cartzilla"></a>
-                <div class="btn-group dropdown disable-autohide">
-                  <button class="btn btn-outline-light border-light btn-sm dropdown-toggle px-2" type="button" data-bs-toggle="dropdown"><img class="me-2" src="~/Assets/img/flags/en.png" width="20" alt="English">Eng / $</button>
-                  <ul class="dropdown-menu my-1">
-         
-                    <li><a class="dropdown-item pb-1" href="#"><img class="me-2" src="~/Assets/img/flags/fr.png" width="20" alt="Français">Français</a></li>
-                    <li><a class="dropdown-item pb-1" href="#"><img class="me-2" src="~/Assets/img/flags/de.png" width="20" alt="Deutsch">Deutsch</a></li>
-                    <li><a class="dropdown-item" href="#"><img class="me-2" src="~/Assets/img/flags/it.png" width="20" alt="Italiano">Italiano</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="widget widget-links widget-light">
-                <ul class="widget-list d-flex flex-wrap justify-content-center justify-content-md-start">
-                  <li class="widget-list-item me-4"><a class="widget-list-link" href="#">Outlets</a></li>
-                  <li class="widget-list-item me-4"><a class="widget-list-link" href="#">Affiliates</a></li>
-                  <li class="widget-list-item me-4"><a class="widget-list-link" href="#">Support</a></li>
-                  <li class="widget-list-item me-4"><a class="widget-list-link" href="#">Privacy</a></li>
-                  <li class="widget-list-item me-4"><a class="widget-list-link" href="#">Terms of use</a></li>
-                </ul>
-              </div>
-            </div>
-           
+                    <div class="col-md-6 text-center text-md-start mb-4">
+                        <div class="text-nowrap mb-4">
+                            <a class="d-inline-block align-middle mt-n1 me-3" href="#"><img class="d-block" src="~/Assets/img/footer-logo-light.png" width="117" alt="Cartzilla"></a>
+                            <div class="btn-group dropdown disable-autohide">
+                                <button class="btn btn-outline-light border-light btn-sm dropdown-toggle px-2" type="button" data-bs-toggle="dropdown"><img class="me-2" src="~/Assets/img/flags/en.png" width="20" alt="English">Eng / $</button>
+                                <ul class="dropdown-menu my-1">
+
+                                    <li><a class="dropdown-item pb-1" href="#"><img class="me-2" src="~/Assets/img/flags/fr.png" width="20" alt="Français">Français</a></li>
+                                    <li><a class="dropdown-item pb-1" href="#"><img class="me-2" src="~/Assets/img/flags/de.png" width="20" alt="Deutsch">Deutsch</a></li>
+                                    <li><a class="dropdown-item" href="#"><img class="me-2" src="~/Assets/img/flags/it.png" width="20" alt="Italiano">Italiano</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="widget widget-links widget-light">
+                            <ul class="widget-list d-flex flex-wrap justify-content-center justify-content-md-start">
+                                <li class="widget-list-item me-4"><a class="widget-list-link" href="#">Outlets</a></li>
+                                <li class="widget-list-item me-4"><a class="widget-list-link" href="#">Affiliates</a></li>
+                                <li class="widget-list-item me-4"><a class="widget-list-link" href="#">Support</a></li>
+                                <li class="widget-list-item me-4"><a class="widget-list-link" href="#">Privacy</a></li>
+                                <li class="widget-list-item me-4"><a class="widget-list-link" href="#">Terms of use</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
                     <div class="col-md-6 text-center text-md-end mb-4">
-                       
-                            <a class="btn-social bs-light bs-twitter ms-2 mb-2" href="#"><i class="ci-twitter"></i></a><a class="btn-social bs-light bs-facebook ms-2 mb-2" href="#"><i class="ci-facebook"></i></a><a class="btn-social bs-light bs-instagram ms-2 mb-2"
-                                                                                                                                                                                                                       href="#"><i class="ci-instagram"></i></a><a class="btn-social bs-light bs-pinterest ms-2 mb-2" href="#"><i class="ci-pinterest"></i></a><a class="btn-social bs-light bs-youtube ms-2 mb-2" href="#"><i class="ci-youtube"></i></a>
-                       
+
+                        <a class="btn-social bs-light bs-twitter ms-2 mb-2" href="#"><i class="ci-twitter"></i></a><a class="btn-social bs-light bs-facebook ms-2 mb-2" href="#"><i class="ci-facebook"></i></a><a class="btn-social bs-light bs-instagram ms-2 mb-2"
+                                                                                                                                                                                                                   href="#"><i class="ci-instagram"></i></a><a class="btn-social bs-light bs-pinterest ms-2 mb-2" href="#"><i class="ci-pinterest"></i></a><a class="btn-social bs-light bs-youtube ms-2 mb-2" href="#"><i class="ci-youtube"></i></a>
+
 
                     </div>
 

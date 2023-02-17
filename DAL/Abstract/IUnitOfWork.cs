@@ -5,6 +5,8 @@
         public ICategoryRepository CategoryRepository { get;  }
         public ISubCategoryRepository SubCategoryRepository { get; }
         public IParameterRepository ParameterRepository { get; }
+        public ICompanyRepository CompanyRepository { get; }
+
         //Task SaveAsync();
     }
 }

@@ -125,7 +125,7 @@ namespace DAL.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 3, 47, 59, 371, DateTimeKind.Local).AddTicks(3483));
+                        .HasDefaultValue(new DateTime(2023, 2, 18, 1, 1, 13, 856, DateTimeKind.Local).AddTicks(8945));
 
                     b.Property<string>("Name")
                         .IsRequired()

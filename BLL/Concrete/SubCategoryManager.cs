@@ -1,4 +1,6 @@
-﻿using Entities.DTOs.SubCategory;
+﻿using Core.Utilities.Extentions;
+using Entities.DTOs.SubCategory;
+using Microsoft.AspNetCore.Hosting;
 
 namespace BLL.Concrete
 {
@@ -6,16 +8,20 @@ namespace BLL.Concrete
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly IWebHostEnvironment _env;
 
-        public SubCategoryManager(IMapper mapper, IUnitOfWork unitOfWork)
+        public SubCategoryManager(IMapper mapper, IUnitOfWork unitOfWork, IWebHostEnvironment env )
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
+            _env = env;
         }
 
         public async Task CreateAsync(SubCategoryPostDto subcategoryPostDto)
         {
             await _unitOfWork.SubCategoryRepository.CreateAsync(_mapper.Map<SubCategory>(subcategoryPostDto));
+            await _unitOfWork.SubCategoryRepository.SaveAsync();
+
             //await _unitOfWork.SaveAsync();
         }
 

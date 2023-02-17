@@ -1,0 +1,45 @@
+﻿@model SubCategoryPostDto
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+
+
+            <div class="row">
+                <div class="col-md-6 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 class="card-title">Create SubCategory</h1>
+                            <div class="text text-danger" asp-validation-summary="ModelOnly"></div>
+                            <form class="forms-sample" method="post" action="Create">
+                                <div class="form-group">
+                                    <label asp-for="@Model.Name">Name</label>
+                                    <input type="text" class="form-control" asp-for="@Model.Name" placeholder="SubCategory Name">
+                                    <span class="mt-2 text text-danger" asp-validation-for="@Model.Name"></span>
+                                </div>
+                                <div class="btn-group dropdown">
+                                    <select asp-for="@Model.CategoryGetDtoId" class="form-select form-select-sm">
+                                        @foreach (CategoryGetDto category in ViewBag.Categories)
+                                        {
+                                  <option value="@category.Id">@category.Name</option>
+                                            
+                                        }
+                                </select>
+                            </div>
+
+
+                                    <button type="submit" class="btn btn-primary mr-2">Create</button>
+                                    <button class="btn btn-light">Cancel</button>
+
+
+                            </form>
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>

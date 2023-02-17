@@ -18,8 +18,12 @@ public static class ServiceCollectionExtention
         services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<SimRaDb>().AddDefaultTokenProviders();
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddScoped<ILayoutService, LayoutManager>();
         services.AddScoped<ICategoryService, CategoryManager>();      
         services.AddScoped<ISubCategoryService, SubCategoryManager>();
+        services.AddScoped<ICompanyService, CompanyManager>();
+        services.AddScoped<IParameterService, ParameterManager>();
+
         return services;
     }
 }

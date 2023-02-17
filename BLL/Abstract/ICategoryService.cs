@@ -1,4 +1,6 @@
-﻿namespace BLL.Abstract
+﻿using Entities.DTOs.SubCategory;
+
+namespace BLL.Abstract
 {
     public interface ICategoryService
     {

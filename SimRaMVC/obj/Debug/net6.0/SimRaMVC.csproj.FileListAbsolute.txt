@@ -576,3 +576,10 @@ C:\Users\User\Desktop\SimRaFinalProject\SimRaMVC\obj\Debug\net6.0\refint\SimRaMV
 C:\Users\User\Desktop\SimRaFinalProject\SimRaMVC\obj\Debug\net6.0\SimRaMVC.pdb
 C:\Users\User\Desktop\SimRaFinalProject\SimRaMVC\obj\Debug\net6.0\SimRaMVC.genruntimeconfig.cache
 C:\Users\User\Desktop\SimRaFinalProject\SimRaMVC\obj\Debug\net6.0\ref\SimRaMVC.dll
+C:\Users\User\Desktop\SimRaFinalProject\SimRaMVC\bin\Debug\net6.0\System.Web.Mvc.dll
+C:\Users\User\Desktop\SimRaFinalProject\SimRaMVC\bin\Debug\net6.0\System.Web.Razor.dll
+C:\Users\User\Desktop\SimRaFinalProject\SimRaMVC\bin\Debug\net6.0\System.Web.Helpers.dll
+C:\Users\User\Desktop\SimRaFinalProject\SimRaMVC\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
+C:\Users\User\Desktop\SimRaFinalProject\SimRaMVC\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
+C:\Users\User\Desktop\SimRaFinalProject\SimRaMVC\bin\Debug\net6.0\System.Web.WebPages.dll
+C:\Users\User\Desktop\SimRaFinalProject\SimRaMVC\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll

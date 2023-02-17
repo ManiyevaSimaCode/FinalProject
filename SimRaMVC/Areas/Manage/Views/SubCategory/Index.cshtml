@@ -13,7 +13,7 @@
                     <thead>
                         <tr>
                             <th>
-                                Category Name
+                                SubCategory Name
                             </th>
                             <th>
                                 Created Date
@@ -24,40 +24,32 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach(CategoryGetDto categoryGetDto in Model)
+                        @foreach (SubCategoryGetDto subCategoryGetDto in Model)
                         {
-                        <!-- Basic accordion -->
-<div class="accordion" id="accordionExample">
+                       
+                            <tr>
+                                <td>
+                                    @subCategoryGetDto.Name
+                                </td>
+                                <td>
+                                    @subCategoryGetDto.CreatedDate
+                                </td>
 
-  <!-- Item -->
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne @categoryGetDto.Name</button>
-    </h2>
-    <div class="accordion-collapse collapse show" id="collapseOne" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div class="accordion-body">This is the first item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.</div>
-    </div>
-  </div>
-</div>
-                            <td>
-                                @categoryGetDto.CreatedDate
-                            </td>
+                                <td>
+                                    <a type="button" asp-action="Update" asp-controller="SubCategory" asp-area="Manage" asp-route-Id=@subCategoryGetDto.Id class="btn btn-primary btn-icon-text">
+                                        <i class="ti-pencil btn-icon-prepend"></i>
 
-                            <td>
-                                <a type="button" asp-action="Update" asp-controller="Category" asp-area="Manage" asp-route-Id=@categoryGetDto.Id  class="btn btn-primary btn-icon-text">
-                                    <i class="ti-pencil btn-icon-prepend"></i>
+                                    </a>
 
-                                </a>
+                                    <a type="button" asp-action="Remove" asp-controller="SubCategory" asp-area="Manage" asp-route-Id=@subCategoryGetDto.Id class="btn btn-danger btn-icon-text">
+                                        <i class="ti-trash btn-icon-prepend"></i>
+                                    </a>
+                                </td>
 
-                                <a type="button" asp-action="Remove" asp-controller="Category" asp-area="Manage" asp-route-Id=@categoryGetDto.Id   class="btn btn-danger btn-icon-text">
-                                    <i class="ti-trash btn-icon-prepend"></i>
-                                </a>
-                            </td>
-
-                        </tr>
+                            </tr>
 
                         }
-                       
+
 
                     </tbody>
                 </table>

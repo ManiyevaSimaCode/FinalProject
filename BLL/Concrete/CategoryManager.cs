@@ -1,4 +1,6 @@
-﻿namespace BLL.Concrete;
+﻿using Entities.DTOs.SubCategory;
+
+namespace BLL.Concrete;
 
 public class CategoryManager : ICategoryService
 {
@@ -31,7 +33,7 @@ public class CategoryManager : ICategoryService
 
     public async Task<List<CategoryGetDto>> GetAllAsync()
     {
-        List<Category> categories = await _unitOfWork.CategoryRepository.GetAllAsync();
+        List<Category> categories = await _unitOfWork.CategoryRepository.GetAllAsync(c=>!c.isDeleted, "SubCategories");
         if (categories.Count is 0)
         {
             throw new NotFoundException(Messages.CategoryNotFound);
@@ -60,6 +62,8 @@ public class CategoryManager : ICategoryService
         return _mapper.Map<CategoryGetDto>(category);
 
     }
+
+
 
     public async Task UpdateAsync(int id, CategoryPostDto categoryPostDto)
     {

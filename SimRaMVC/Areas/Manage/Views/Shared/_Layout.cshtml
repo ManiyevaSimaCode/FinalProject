@@ -22,6 +22,8 @@
     <link rel="shortcut icon" href="~/Admin/Assets/images/favicon.png" />
 </head>
 <body>
+
+
     <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -296,17 +298,24 @@
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
-                 <a class="nav-link" asp-controller="Category" aria-expanded="false" asp-action="Index" asp-area="Manage">
+                        <a class="nav-link" asp-controller="Category" aria-expanded="false" asp-action="Index" asp-area="Manage">
                             <i class="icon-grid menu-icon"></i>
                             <span class="menu-title">Category</span>
                         </a>
                     </li>
 
-                      
+
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="SubCategory" asp-action="Index" asp-area="Manage">
                             <i class="icon-grid menu-icon"></i>
                             <span class="menu-title">SubCategory</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Parameter" asp-action="Index" asp-area="Manage" aria-expanded="false">
+                            <i class="icon-grid menu-icon"></i>
+                            <span class="menu-title">Parameters</span>
+
                         </a>
                     </li>
                     <li class="nav-item">
@@ -317,13 +326,7 @@
 
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Parameter" asp-action="Index" asp-area="Manage" aria-expanded="false">
-                            <i class="icon-grid menu-icon"></i>
-                            <span class="menu-title">Product Parameters</span>
 
-                        </a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
                             <i class="icon-head menu-icon"></i>

@@ -1,5 +1,6 @@
 ﻿using BLL.Abstract;
 using BLL.Utilities.Validations.FluentValidations.Subcategory;
+using Entities.Concrete;
 using Entities.DTOs.SubCategory;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
@@ -11,10 +12,12 @@ namespace SimRaMVC.Areas.Manage.Controllers
     public class SubCategoryController : Controller
     {
         private readonly ISubCategoryService _subCategoryService;
+        private readonly ICategoryService _categoryService;
 
-        public SubCategoryController(ISubCategoryService subCategoryService)
+        public SubCategoryController(ISubCategoryService subCategoryService, ICategoryService categoryService)
         {
             _subCategoryService = subCategoryService;
+            _categoryService = categoryService;
         }
 
         [HttpGet]
@@ -26,8 +29,9 @@ namespace SimRaMVC.Areas.Manage.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            ViewBag.Categories = await _categoryService.GetAllAsync();
             return View();
         }
 
@@ -35,22 +39,9 @@ namespace SimRaMVC.Areas.Manage.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(SubCategoryPostDto subCategoryPostDto)
         {
-            SubCategoryPostDtoValidator subCategoryValidator = new SubCategoryPostDtoValidator();
-            ValidationResult result = subCategoryValidator.Validate(subCategoryPostDto);
-            if (result.IsValid)
-            {
+          
                 await _subCategoryService.CreateAsync(subCategoryPostDto);
                 return RedirectToAction("Index");
-
-            }
-            else
-            {
-                foreach (var item in result.Errors)
-                {
-                    ModelState.AddModelError("", item.ErrorMessage);
-                }
-            }
-            return View();
 
         }
 
