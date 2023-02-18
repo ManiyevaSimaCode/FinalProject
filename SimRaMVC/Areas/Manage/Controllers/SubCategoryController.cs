@@ -66,8 +66,17 @@ namespace SimRaMVC.Areas.Manage.Controllers
         public async Task<IActionResult> Remove(int id)
         {
 
+
+            SubCategoryGetDto subCategory = await _subCategoryService.GetByIdAsync(id);
+            if (subCategory is null)
+            {
+                return NotFound();
+            }
+
             await _subCategoryService.DeleteByIdAsync(id);
-            return RedirectToAction("Index");
+
+            return Ok();
+
 
         }
     }

@@ -56,9 +56,13 @@ namespace SimRaMVC.Areas.Manage.Controllers
 
         public async Task<IActionResult> Remove(int id)
         {
-
+            CompanyGetDto company = await _companyService.GetByIdAsync(id);
+            if (company is null)
+            {
+                return NotFound();
+            }
             await _companyService.DeleteByIdAsync(id);
-            return RedirectToAction("Index");
+            return Ok();
 
         }
 

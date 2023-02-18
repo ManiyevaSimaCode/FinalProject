@@ -21,6 +21,7 @@ namespace Core.DAL.Concrete
 
         public void Delete(TEntity entity)
         {
+            
             _context.Set<TEntity>().Remove(entity);
 
 

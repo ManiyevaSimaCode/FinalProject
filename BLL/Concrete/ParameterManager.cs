@@ -27,7 +27,7 @@ namespace BLL.Concrete
             {
                 throw new NotFoundException(Messages.ParameterNotFound);
             }
-            _unitOfWork.ParameterRepository.Delete(parameter);
+            parameter.isDeleted = true;
             await _unitOfWork.ParameterRepository.SaveAsync();
         }
 

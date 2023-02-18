@@ -1,4 +1,5 @@
 ﻿using BLL.Abstract;
+using Entities.Concrete;
 using Entities.DTOs.Category;
 using Microsoft.AspNetCore.Mvc;
 
@@ -69,8 +70,15 @@ namespace SimRaMVC.Areas.Manage.Controllers
         public async Task<IActionResult> Remove(int id)
         {
 
+            CategoryGetDto category = await _categoryService.GetByIdAsync(id);
+            if (category is null)
+            {
+                return NotFound();
+            }
+
             await _categoryService.DeleteByIdAsync(id);
-            return RedirectToAction("Index");
+            
+            return Ok();
 
         }
 

@@ -27,7 +27,8 @@ public class CategoryManager : ICategoryService
         {
             throw new NotFoundException(Messages.CategoryNotFound);
         }
-        _unitOfWork.CategoryRepository.Delete(category);
+
+        category.isDeleted = true;
         await _unitOfWork.CategoryRepository.SaveAsync();
     }
 

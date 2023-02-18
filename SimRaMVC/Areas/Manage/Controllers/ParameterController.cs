@@ -72,9 +72,13 @@ namespace SimRaMVC.Areas.Manage.Controllers
 
         public async Task<IActionResult> Remove(int id)
         {
-
+            ParameterGetDto parameter = await _parameterService.GetByIdAsync(id);
+            if (parameter is null)
+            {
+                return NotFound();
+            }
             await _parameterService.DeleteByIdAsync(id);
-            return RedirectToAction("Index");
+            return Ok();
 
         }
     }

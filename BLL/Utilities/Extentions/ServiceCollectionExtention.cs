@@ -1,16 +1,15 @@
-﻿namespace BLL.Utilities.Extentions;
+﻿using Microsoft.AspNetCore.Mvc.Infrastructure;
+
+namespace BLL.Utilities.Extentions;
 
 public static class ServiceCollectionExtention
 {
 
     public static IServiceCollection AddBusinessConfiguration(this IServiceCollection services,IConfiguration configuration )
     {
-        services.AddControllers().AddFluentValidation(opt =>
-        {
-            opt.ImplicitlyValidateChildProperties = true;
-            opt.ImplicitlyValidateRootCollectionElements = true;
-            opt.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-        });
+      
+        services.AddFluentValidationAutoValidation(opt => opt.DisableDataAnnotationsValidation = false).AddFluentValidationClientsideAdapters();
+        services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
         services.AddDbContext<SimRaDb>(opt =>
         {
             opt.UseSqlServer(configuration.GetConnectionString("Default"));
@@ -23,6 +22,8 @@ public static class ServiceCollectionExtention
         services.AddScoped<ISubCategoryService, SubCategoryManager>();
         services.AddScoped<ICompanyService, CompanyManager>();
         services.AddScoped<IParameterService, ParameterManager>();
+        services.AddScoped<IAuthService, AuthManager>();
+        services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
 
         return services;
     }

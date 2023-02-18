@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KiJKqM2SDv4oZ/hITwlKh+kkk/V99hss5D+HkEg1xxU=",
+  "Hash": "a2SsU6+YsdBk8fio1Df9lluAzJrO8iptAmHr0EN3sho=",
   "Source": "SimRaMVC",
   "BasePath": "_content/SimRaMVC",
   "Mode": "Default",
@@ -4656,6 +4656,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Admin\\Assets\\js\\listify.js"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\SimRaMVC\\wwwroot\\Admin\\Assets\\js\\main.js",
+      "SourceId": "SimRaMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\SimRaMVC\\wwwroot\\",
+      "BasePath": "_content/SimRaMVC",
+      "RelativePath": "Admin/Assets/js/main.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Admin\\Assets\\js\\main.js"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\SimRaMVC\\wwwroot\\Admin\\Assets\\js\\mapael.js",

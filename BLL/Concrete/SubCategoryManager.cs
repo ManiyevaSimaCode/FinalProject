@@ -32,7 +32,7 @@ namespace BLL.Concrete
             {
                 throw new NotFoundException(Messages.SubcategoryNotFound);
             }
-            _unitOfWork.SubCategoryRepository.Delete(subcategory);
+            subcategory.isDeleted = true;
             //await _unitOfWork.SaveAsync();
         }
 

@@ -46,7 +46,7 @@ namespace BLL.Concrete
             {
                 throw new NotFoundException(Messages.CompanyNotFound);
             }
-            _unitOfWork.CompanyRepository.Delete(company);
+            company.isDeleted = true;
             await _unitOfWork.CompanyRepository.SaveAsync();
         }
 
