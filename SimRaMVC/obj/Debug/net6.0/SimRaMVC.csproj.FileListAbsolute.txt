@@ -583,3 +583,4 @@ C:\Users\User\Desktop\SimRaFinalProject\SimRaMVC\bin\Debug\net6.0\System.Web.Web
 C:\Users\User\Desktop\SimRaFinalProject\SimRaMVC\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
 C:\Users\User\Desktop\SimRaFinalProject\SimRaMVC\bin\Debug\net6.0\System.Web.WebPages.dll
 C:\Users\User\Desktop\SimRaFinalProject\SimRaMVC\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll
+C:\Users\User\Desktop\SimRaFinalProject\SimRaMVC\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll

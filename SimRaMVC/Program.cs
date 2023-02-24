@@ -27,6 +27,8 @@ app.UseStaticFiles();
 //app.CustomExceptionHandler();
 
 app.UseRouting();
+//app.CustomExceptionHandler();
+//app.UseAuthentication();
 
 app.UseAuthorization();
 

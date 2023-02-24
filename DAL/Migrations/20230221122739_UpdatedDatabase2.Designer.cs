@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(SimRaDb))]
-    [Migration("20230211232437_Changes")]
-    partial class Changes
+    [Migration("20230221122739_UpdatedDatabase2")]
+    partial class UpdatedDatabase2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -127,7 +127,7 @@ namespace DAL.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 3, 24, 37, 39, DateTimeKind.Local).AddTicks(4483));
+                        .HasDefaultValue(new DateTime(2023, 2, 21, 16, 27, 39, 192, DateTimeKind.Local).AddTicks(9426));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -459,27 +459,6 @@ namespace DAL.Migrations
                     b.ToTable("SubCategories");
                 });
 
-            modelBuilder.Entity("Entities.Concrete.SubCategoryParameter", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("ParameterId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SubCategoryId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SubCategoryId");
-
-                    b.ToTable("SubCategoryParameters");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -712,25 +691,6 @@ namespace DAL.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("Entities.Concrete.SubCategoryParameter", b =>
-                {
-                    b.HasOne("Entities.Concrete.Parameter", "Parameter")
-                        .WithMany("SubCategoryParameters")
-                        .HasForeignKey("SubCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Entities.Concrete.SubCategory", "SubCategory")
-                        .WithMany("SubCategoryParameter")
-                        .HasForeignKey("SubCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Parameter");
-
-                    b.Navigation("SubCategory");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -804,8 +764,6 @@ namespace DAL.Migrations
             modelBuilder.Entity("Entities.Concrete.Parameter", b =>
                 {
                     b.Navigation("ProductParameters");
-
-                    b.Navigation("SubCategoryParameters");
                 });
 
             modelBuilder.Entity("Entities.Concrete.Product", b =>
@@ -822,8 +780,6 @@ namespace DAL.Migrations
             modelBuilder.Entity("Entities.Concrete.SubCategory", b =>
                 {
                     b.Navigation("Products");
-
-                    b.Navigation("SubCategoryParameter");
                 });
 #pragma warning restore 612, 618
         }

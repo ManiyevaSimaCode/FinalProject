@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "a2SsU6+YsdBk8fio1Df9lluAzJrO8iptAmHr0EN3sho=",
+  "Hash": "DMMS4v1n4ZC8VRTBuAdkpJkhfVO67hoLVl5kS5xv9DE=",
   "Source": "SimRaMVC",
   "BasePath": "_content/SimRaMVC",
   "Mode": "Default",
@@ -37262,6 +37262,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Assets\\img\\shop\\brands\\75faaf58-029a-46b3-8a52-5f83f420598c880357340-ozgun.png"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\SimRaMVC\\wwwroot\\Assets\\img\\shop\\brands\\aa67dee1-758b-47e0-acd7-c6bf6d99eff9Untitled design.png",
+      "SourceId": "SimRaMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\SimRaMVC\\wwwroot\\",
+      "BasePath": "_content/SimRaMVC",
+      "RelativePath": "Assets/img/shop/brands/aa67dee1-758b-47e0-acd7-c6bf6d99eff9Untitled design.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Assets\\img\\shop\\brands\\aa67dee1-758b-47e0-acd7-c6bf6d99eff9Untitled design.png"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\SimRaMVC\\wwwroot\\Assets\\img\\shop\\brands\\dd570476-15b3-496f-89a7-a8218306b407880357340-ozgun.png",

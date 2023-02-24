@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace DAL.Migrations
 {
-    public partial class addManyToManyTablestoDb : Migration
+    public partial class UpdatedDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -49,6 +50,16 @@ namespace DAL.Migrations
                 name: "IX_ProductParameter_ProductId",
                 table: "ProductParameters",
                 newName: "IX_ProductParameters_ProductId");
+
+            migrationBuilder.AlterColumn<DateTime>(
+                name: "CreatedDate",
+                table: "Categories",
+                type: "datetime2",
+                nullable: false,
+                defaultValue: new DateTime(2023, 2, 21, 16, 18, 9, 974, DateTimeKind.Local).AddTicks(3280),
+                oldClrType: typeof(DateTime),
+                oldType: "datetime2",
+                oldDefaultValueSql: "GETUTCDATE()");
 
             migrationBuilder.AddPrimaryKey(
                 name: "PK_SubCategoryParameters",
@@ -135,6 +146,16 @@ namespace DAL.Migrations
                 name: "IX_ProductParameters_ProductId",
                 table: "ProductParameter",
                 newName: "IX_ProductParameter_ProductId");
+
+            migrationBuilder.AlterColumn<DateTime>(
+                name: "CreatedDate",
+                table: "Categories",
+                type: "datetime2",
+                nullable: false,
+                defaultValueSql: "GETUTCDATE()",
+                oldClrType: typeof(DateTime),
+                oldType: "datetime2",
+                oldDefaultValue: new DateTime(2023, 2, 21, 16, 18, 9, 974, DateTimeKind.Local).AddTicks(3280));
 
             migrationBuilder.AddPrimaryKey(
                 name: "PK_SubCategoryParameter",

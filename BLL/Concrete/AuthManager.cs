@@ -9,20 +9,22 @@ namespace BLL.Concrete
 
         private readonly SignInManager<AppUser> _signInManager;
         private readonly IActionContextAccessor _ActionContextAccessor;
+        private readonly IMapper _mapper;
 
-        public AuthManager(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<AppUser> signInManager, IActionContextAccessor actionContextAccessor)
+        public AuthManager(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<AppUser> signInManager, IActionContextAccessor actionContextAccessor, IMapper mapper)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _ActionContextAccessor = actionContextAccessor;
+            _mapper = mapper;
         }
 
         public async Task<bool>Login(LoginDto loginDto)
         {
-            AppUser appUser = await _userManager.FindByNameAsync(loginDto.UserName);
+            AppUser appUser = await _userManager.FindByEmailAsync(loginDto.Email);
             if (appUser is null)
             {
-                _ActionContextAccessor.ActionContext.ModelState.AddModelError("", "Login or Password is incorrect!");
+                _ActionContextAccessor.ActionContext.ModelState.AddModelError("", "Email or Password is incorrect!");
                 return false;
             }
             else
@@ -33,10 +35,28 @@ namespace BLL.Concrete
         }
         public async Task<bool> Register(RegisterDto registerDto)
         {
-            AppUser appUser = new AppUser()
+            AppUser existUser = await _userManager.FindByNameAsync(registerDto.UserName);
+            if (existUser is not null)
+            {
+                _ActionContextAccessor.ActionContext.ModelState.AddModelError("", "This UserName is already exist!");
+
+                return false;
+            }//this email is already exist?
+
+            AppUser appUser = new AppUser
             {
                 UserName = registerDto.UserName,
-                Email = registerDto.Email
+                Email = registerDto.Email,
+                Description="",
+                FacebookUrl="",
+                InstagramUrl="",
+                TwitterUrl="",
+                LinkedinUrl="",
+                ImagePath="",
+                isCompany=false,
+                
+
+
             };
             IdentityResult result = await _userManager.CreateAsync(appUser, registerDto.Password);
             if (!result.Succeeded)

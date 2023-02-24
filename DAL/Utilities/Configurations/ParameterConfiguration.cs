@@ -8,8 +8,7 @@
             builder.Property(c => c.isDeleted).HasDefaultValue(false);
             builder.Property(c => c.CreatedDate).HasDefaultValueSql("GETUTCDATE()");
 
-            builder.HasMany(p => p.ProductParameters).WithOne(p => p.Parametr).HasForeignKey(p => p.ProductId);
-            builder.HasMany(p => p.SubCategoryParameters).WithOne(p => p.Parameter).HasForeignKey(p => p.SubCategoryId);
+            builder.HasMany(p => p.ProductParameters).WithOne(p => p.Parameter).HasForeignKey(p => p.ProductId);
         }
     }
 }

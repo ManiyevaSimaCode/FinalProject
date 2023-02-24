@@ -17,9 +17,7 @@ namespace BLL.Utilities.Validations.FluentValidations.Parameter
             .NotNull()
              .WithMessage("Don't Enter Null ")
                .MinimumLength(5).
-                MaximumLength(255).
-                Must(ValidName)
-                .WithMessage("Enter valid Parameter");
+                MaximumLength(255);
         }
         private bool ValidName(string name)
         {

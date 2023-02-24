@@ -1,9 +1,4 @@
 ﻿using Entities.DTOs.Account;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLL.Utilities.Validations.FluentValidations.Account
 {
@@ -11,7 +6,7 @@ namespace BLL.Utilities.Validations.FluentValidations.Account
     {
         public RegisterDtoValidator()
         {
-            RuleFor(c => c.FullName)
+            RuleFor(c => c.UserName)
                 .NotEmpty()
                 .WithMessage("Don't Enter Empty ")
             .NotNull()
@@ -27,8 +22,9 @@ namespace BLL.Utilities.Validations.FluentValidations.Account
              .WithMessage("Don't Enter Null ")
                .MinimumLength(25).
                 MaximumLength(255);
-               
-                }
+            
+
+        }
         private bool ValidName(string name)
         {
             var nameRegex = "/^[A-Za-z ]+$/";
@@ -41,6 +37,5 @@ namespace BLL.Utilities.Validations.FluentValidations.Account
         }
 
     }
-    {
-    }
+
 }

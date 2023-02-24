@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(SimRaDb))]
-    [Migration("20230211221029_addManyToManyTablestoDb")]
-    partial class addManyToManyTablestoDb
+    [Migration("20230221121810_UpdatedDatabase")]
+    partial class UpdatedDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -127,7 +127,7 @@ namespace DAL.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValueSql("GETUTCDATE()");
+                        .HasDefaultValue(new DateTime(2023, 2, 21, 16, 18, 9, 974, DateTimeKind.Local).AddTicks(3280));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -721,7 +721,7 @@ namespace DAL.Migrations
                         .IsRequired();
 
                     b.HasOne("Entities.Concrete.SubCategory", "SubCategory")
-                        .WithMany("SubCategoryParameter")
+                        .WithMany("SubCategoryParameters")
                         .HasForeignKey("SubCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -823,7 +823,7 @@ namespace DAL.Migrations
                 {
                     b.Navigation("Products");
 
-                    b.Navigation("SubCategoryParameter");
+                    b.Navigation("SubCategoryParameters");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,0 +1,56 @@
+﻿@model SubCategoryUpdateDto
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title">Update SubCategory</h1>
+                <div class="text text-danger" asp-validation-summary="ModelOnly"></div>
+                <form class="forms-sample" method="post" action="Update">
+                    <div class="form-group">
+                        <input  hidden asp-for="@Model.subCategoryGetDto.Id"/>
+                        <label asp-for="@Model.subCategoryPostDto.Name">Name</label>
+                        <input type="text" class="form-control" asp-for="@Model.subCategoryPostDto.Name" placeholder="SubCategory Name" value="@Model.subCategoryGetDto.Name">
+                        <span class="mt-2 text text-danger" asp-validation-for="@Model.subCategoryPostDto.Name"></span>
+                    </div>
+                    <div class="form-group mt-4">
+                        <div class="btn-group dropdown mt-4">
+                            <label asp-for=@Model.subCategoryPostDto.CategoryId>>Categories</label>
+                            <select asp-for=@Model.subCategoryPostDto.CategoryId>class="form-select form-select-sm">
+                                @foreach (CategoryGetDto category in ViewBag.Categories)
+                                {
+                                    <option value="@category.Id">@category.Name</option>
+
+                                }
+                            </select>
+                           
+                        </div>
+                    </div>
+                    <div class="form-group mt-4">
+                        <div class="btn-group dropdown mt-4">
+                            <label asp-for=@Model.subCategoryPostDto.ParameterIds>Parameters</label>
+                            <select asp-for="@Model.subCategoryPostDto.ParameterIds" asp-items="new SelectList((List<ParameterGetDto>)ViewBag.Parameters,nameof(ParameterGetDto.Id),nameof(ParameterGetDto.Name))"  class="form-select form-select-sm">
+                            </select>
+                            <span class="text-danger" asp-validation-for=@Model.subCategoryPostDto.ParameterIds></span>
+
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Update</button>
+                    <button class="btn btn-light" asp-action="Index">Cancel</button>
+
+
+                </form>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DAL.Migrations
 {
-    public partial class AddCompanyTableConfigurationNull : Migration
+    public partial class AlterError : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,10 +14,10 @@ namespace DAL.Migrations
                 table: "Categories",
                 type: "datetime2",
                 nullable: false,
-                defaultValue: new DateTime(2023, 2, 18, 1, 1, 13, 856, DateTimeKind.Local).AddTicks(8945),
+                defaultValue: new DateTime(2023, 2, 24, 3, 33, 18, 821, DateTimeKind.Local).AddTicks(8541),
                 oldClrType: typeof(DateTime),
                 oldType: "datetime2",
-                oldDefaultValue: new DateTime(2023, 2, 12, 3, 47, 59, 371, DateTimeKind.Local).AddTicks(3483));
+                oldDefaultValue: new DateTime(2023, 2, 21, 16, 30, 37, 605, DateTimeKind.Local).AddTicks(3383));
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -27,10 +27,10 @@ namespace DAL.Migrations
                 table: "Categories",
                 type: "datetime2",
                 nullable: false,
-                defaultValue: new DateTime(2023, 2, 12, 3, 47, 59, 371, DateTimeKind.Local).AddTicks(3483),
+                defaultValue: new DateTime(2023, 2, 21, 16, 30, 37, 605, DateTimeKind.Local).AddTicks(3383),
                 oldClrType: typeof(DateTime),
                 oldType: "datetime2",
-                oldDefaultValue: new DateTime(2023, 2, 18, 1, 1, 13, 856, DateTimeKind.Local).AddTicks(8945));
+                oldDefaultValue: new DateTime(2023, 2, 24, 3, 33, 18, 821, DateTimeKind.Local).AddTicks(8541));
         }
     }
 }

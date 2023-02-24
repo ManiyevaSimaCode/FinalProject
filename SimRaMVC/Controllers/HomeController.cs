@@ -13,6 +13,11 @@ namespace SimRaMVC.Controllers
             return View();
         }
 
+        public IActionResult ErrorPage()
+        {
+            return View();
+        }
+
    
     }
 }

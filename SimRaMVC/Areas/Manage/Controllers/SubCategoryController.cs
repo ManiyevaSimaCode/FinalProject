@@ -13,11 +13,13 @@ namespace SimRaMVC.Areas.Manage.Controllers
     {
         private readonly ISubCategoryService _subCategoryService;
         private readonly ICategoryService _categoryService;
+        private readonly IParameterService _parameterService;
 
-        public SubCategoryController(ISubCategoryService subCategoryService, ICategoryService categoryService)
+        public SubCategoryController(ISubCategoryService subCategoryService, ICategoryService categoryService, IParameterService parameterService)
         {
             _subCategoryService = subCategoryService;
             _categoryService = categoryService;
+            _parameterService = parameterService;
         }
 
         [HttpGet]
@@ -31,8 +33,12 @@ namespace SimRaMVC.Areas.Manage.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
+
             ViewBag.Categories = await _categoryService.GetAllAsync();
+            ViewBag.Parameters = await _parameterService.GetAllAsync();
+
             return View();
+
         }
 
 
@@ -52,6 +58,8 @@ namespace SimRaMVC.Areas.Manage.Controllers
             {
                 subCategoryGetDto = await _subCategoryService.GetByIdAsync(id),
             };
+            ViewBag.Categories = await _categoryService.GetAllAsync();
+            ViewBag.Parameters = await _parameterService.GetAllAsync();
             return View(subCategoryUpdateDto);
         }
 
@@ -59,6 +67,7 @@ namespace SimRaMVC.Areas.Manage.Controllers
         public async Task<IActionResult> Update(SubCategoryUpdateDto subCategoryUpdateDto)
         {
             await _subCategoryService.UpdateAsync(subCategoryUpdateDto.subCategoryGetDto.Id, subCategoryUpdateDto.subCategoryPostDto);
+
 
             return RedirectToAction("Index");
         }
@@ -70,7 +79,7 @@ namespace SimRaMVC.Areas.Manage.Controllers
             SubCategoryGetDto subCategory = await _subCategoryService.GetByIdAsync(id);
             if (subCategory is null)
             {
-                return NotFound();
+                return RedirectToAction("Error","Home");
             }
 
             await _subCategoryService.DeleteByIdAsync(id);

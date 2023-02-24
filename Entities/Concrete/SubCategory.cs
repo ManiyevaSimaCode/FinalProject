@@ -1,4 +1,6 @@
 ﻿using Entities.Abstract;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Concrete
 {
@@ -14,10 +16,12 @@ namespace Entities.Concrete
         public int CategoryId { get; set; }
         public Category Category { get; set; }
         public List<Product>Products { get; set; }
-        public List<SubCategoryParameter> SubCategoryParameter { get; set; }
+
+        public List<SubCategoryParameter> SubCategoryParameters { get; set; }
         public bool isDeleted { get; set; }
         public DateTime CreatedDate { get; set; }
-
+        [NotMapped]
+        public List<int> ParameterIds { get; set; }
 
     }
 }

@@ -16,7 +16,7 @@ namespace Core.Utilities.Security.JWT
         {
             _configuration = configuration;
             _tokenOptions = _configuration.GetSection("TokenOptions").Get<TokenOptions>();
-            _accessTokenExpiration=DateTime.UtcNow.AddMinutes(_tokenOption.AccessTokenExpiration);
+            _accessTokenExpiration=DateTime.UtcNow.AddMinutes(_tokenOptions.AccessTokenExpiration);
         }
 
         public AccessToken CreateToken( List<Claim> claims)

@@ -8,6 +8,7 @@ namespace DAL.Concrete
         ISubCategoryRepository _subCategoryRepository;
         IParameterRepository _parameterRepository;
         ICompanyRepository _companyRepository;
+        IProductRepository _productRepository;
 
         public UnitOfWork(SimRaDb dbContext)
         {
@@ -18,6 +19,7 @@ namespace DAL.Concrete
         public ISubCategoryRepository SubCategoryRepository =>   _subCategoryRepository?? new SubCategoryRepository(_dbContext);
         public IParameterRepository ParameterRepository =>   _parameterRepository?? new ParameterRepository(_dbContext);
         public ICompanyRepository CompanyRepository =>   _companyRepository ?? new CompanyRepository(_dbContext);
+        public IProductRepository ProductRepository =>   _productRepository ?? new ProductRepository(_dbContext);
 
         //public async Task SaveAsync()
         //{

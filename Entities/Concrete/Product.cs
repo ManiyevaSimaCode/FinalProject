@@ -1,5 +1,6 @@
 ﻿using Core.Entities.Concrete;
 using Entities.Abstract;
+using System.ComponentModel.DataAnnotations;
 
 namespace Entities.Concrete
 {
@@ -27,6 +28,9 @@ namespace Entities.Concrete
         public bool isDeleted { get; set; }
         public bool isConfirmed { get; set; }
         public DateTime CreatedDate { get; set; }
+
+       
+
 
     }
 }

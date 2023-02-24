@@ -9,6 +9,6 @@ namespace Entities.DTOs.Category
         public int Id { get; set; }
         public string Name { get; set; }
         public DateTime CreatedDate { get; set; }
-        public List<SubCategoryGetDto>SubCategoryGetDtos { get; set; }
+        public List<SubCategoryGetDto> SubCategories { get; set; }
     }
 }

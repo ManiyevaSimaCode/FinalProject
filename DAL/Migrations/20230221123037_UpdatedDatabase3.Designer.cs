@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(SimRaDb))]
-    [Migration("20230211234800_ChangesDb")]
-    partial class ChangesDb
+    [Migration("20230221123037_UpdatedDatabase3")]
+    partial class UpdatedDatabase3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -127,7 +127,7 @@ namespace DAL.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 12, 3, 47, 59, 371, DateTimeKind.Local).AddTicks(3483));
+                        .HasDefaultValue(new DateTime(2023, 2, 21, 16, 30, 37, 605, DateTimeKind.Local).AddTicks(3383));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -475,6 +475,8 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ParameterId");
+
                     b.HasIndex("SubCategoryId");
 
                     b.ToTable("SubCategoryParameters");
@@ -716,12 +718,12 @@ namespace DAL.Migrations
                 {
                     b.HasOne("Entities.Concrete.Parameter", "Parameter")
                         .WithMany("SubCategoryParameters")
-                        .HasForeignKey("SubCategoryId")
+                        .HasForeignKey("ParameterId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Entities.Concrete.SubCategory", "SubCategory")
-                        .WithMany("SubCategoryParameter")
+                        .WithMany("SubCategoryParameters")
                         .HasForeignKey("SubCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -823,7 +825,7 @@ namespace DAL.Migrations
                 {
                     b.Navigation("Products");
 
-                    b.Navigation("SubCategoryParameter");
+                    b.Navigation("SubCategoryParameters");
                 });
 #pragma warning restore 612, 618
         }

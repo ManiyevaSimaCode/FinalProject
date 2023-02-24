@@ -1,4 +1,4 @@
-﻿using Entities.Concrete;
+﻿using Entities.DTOs.Product;
 using Microsoft.AspNetCore.Http;
 
 namespace Entities.DTOs.Company
@@ -12,7 +12,7 @@ namespace Entities.DTOs.Company
         public string FacebookUrl { get; set; }
         public string TwitterUrl { get; set; }
         public string LinkedinUrl { get; set; }
-        public List<Product> Products { get; set; }
+        public List<ProductGetDto> Products { get; set; }
         public DateTime CreatedDate { get; set; }
     }
 }

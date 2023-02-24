@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Mi48tHwDPvezFVRJhv0PtcTYY79fct8y7FWS18y+i2/ppP+fWaiRgzkxE8OW1UNbPiJuEjKjfcOyNMvS7di3gw==",
+  "dgSpecHash": "3vFkz5qY3PEhmYE6q/FZF0sleOhqjhgjcUVcCb5vAXkxI0lgc9zFjSudyrrQbyE+H5yH3oWRPifMnQAOvRILvw==",
   "success": true,
   "projectFilePath": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\SimRaMVC\\SimRaMVC.csproj",
   "expectedPackageFiles": [
@@ -106,7 +106,7 @@
     "C:\\Users\\User\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
-    "C:\\Users\\User\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\nuget.common\\6.3.1\\nuget.common.6.3.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\nuget.configuration\\6.3.1\\nuget.configuration.6.3.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\nuget.dependencyresolver.core\\6.3.1\\nuget.dependencyresolver.core.6.3.1.nupkg.sha512",

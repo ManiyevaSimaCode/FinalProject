@@ -1,6 +1,5 @@
 ﻿using BLL.Abstract;
 using Entities.DTOs.Account;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace SimRaMVC.Controllers
@@ -8,26 +7,21 @@ namespace SimRaMVC.Controllers
     public class AuthController : Controller
     {
         private readonly IAuthService _authService;
-        private readonly RoleManager<IdentityRole> _roleManager;
+        //private readonly RoleManager<IdentityRole> _roleManager;
 
-        public AuthController(IAuthService authService, RoleManager<IdentityRole> roleManager)
+        public AuthController(IAuthService authService/*RoleManager<IdentityRole> roleManager*/)
         {
             _authService = authService;
-            _roleManager = roleManager;
+            //_roleManager = roleManager;
         }
 
-        public IActionResult Index()
-        {
+        //public async  Task<IActionResult> Index()
+        //{
 
-            _roleManager.CreateAsync(new IdentityRole { Name = "Admin" });
-            _roleManager.CreateAsync(new IdentityRole { Name = "User" });
-            return Json("ok");
-        }
-
-        public IActionResult Register()
-        {
-            return View();
-        }
+        //   await  _roleManager.CreateAsync(new IdentityRole("Admin"));
+        //   await  _roleManager.CreateAsync(new IdentityRole("User"));
+        //    return Json("ok");
+        //}
 
         [HttpPost]
         public async Task<IActionResult> Register(RegisterDto registerDto)
@@ -36,17 +30,17 @@ namespace SimRaMVC.Controllers
             var result = await _authService.Register(registerDto);
             if (!result)
             {
-                return View(registerDto);
+                return RedirectToAction("Register",registerDto);
             }
 
-            return RedirectToAction("Login");
+            return RedirectToAction("Login",registerDto);
         }
 
         public IActionResult Login()
         {
             return View();
         }
-
+ 
         [HttpPost]
         public async Task<IActionResult> Login(LoginDto loginDto)
         {

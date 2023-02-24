@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(SimRaDb))]
-    [Migration("20230217210114_AddCompanyTableConfigurationNull")]
-    partial class AddCompanyTableConfigurationNull
+    [Migration("20230223233319_AlterError")]
+    partial class AlterError
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -127,7 +127,7 @@ namespace DAL.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 2, 18, 1, 1, 13, 856, DateTimeKind.Local).AddTicks(8945));
+                        .HasDefaultValue(new DateTime(2023, 2, 24, 3, 33, 18, 821, DateTimeKind.Local).AddTicks(8541));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -475,6 +475,8 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ParameterId");
+
                     b.HasIndex("SubCategoryId");
 
                     b.ToTable("SubCategoryParameters");
@@ -667,7 +669,7 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Entities.Concrete.ProductParameter", b =>
                 {
-                    b.HasOne("Entities.Concrete.Parameter", "Parametr")
+                    b.HasOne("Entities.Concrete.Parameter", "Parameter")
                         .WithMany("ProductParameters")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -678,7 +680,7 @@ namespace DAL.Migrations
                         .HasForeignKey("ProductId")
                         .IsRequired();
 
-                    b.Navigation("Parametr");
+                    b.Navigation("Parameter");
 
                     b.Navigation("Product");
                 });
@@ -716,12 +718,12 @@ namespace DAL.Migrations
                 {
                     b.HasOne("Entities.Concrete.Parameter", "Parameter")
                         .WithMany("SubCategoryParameters")
-                        .HasForeignKey("SubCategoryId")
+                        .HasForeignKey("ParameterId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Entities.Concrete.SubCategory", "SubCategory")
-                        .WithMany("SubCategoryParameter")
+                        .WithMany("SubCategoryParameters")
                         .HasForeignKey("SubCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -823,7 +825,7 @@ namespace DAL.Migrations
                 {
                     b.Navigation("Products");
 
-                    b.Navigation("SubCategoryParameter");
+                    b.Navigation("SubCategoryParameters");
                 });
 #pragma warning restore 612, 618
         }
