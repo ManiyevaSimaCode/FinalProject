@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="~/Admin/Assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
     <link rel="stylesheet" href="~/Admin/Assets/vendors/ti-icons/css/themify-icons.css">
     <link rel="stylesheet" type="text/css" href="~/Admin/Assets/js/select.dataTables.min.css">
+      <link rel="stylesheet" href="~/Admin/Assets/vendors/mdi/css/materialdesignicons.min.css">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="~/Admin/Assets/css/vertical-layout-light/style.css">
@@ -326,20 +327,31 @@
 
                         </a>
                     </li>
+                                  <li class="nav-item">
 
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                            <i class="icon-head menu-icon"></i>
-                            <span class="menu-title">User Pages</span>
-                            <i class="menu-arrow"></i>
+                        <a class="nav-link" asp-controller="Product" asp-action="Index" asp-area="Manage" aria-expanded="false">
+                            <i class="icon-grid menu-icon"></i>
+                            <span class="menu-title">Companies</span>
+
                         </a>
-                        <div class="collapse" id="auth">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-                            </ul>
-                        </div>
                     </li>
+                                   <li class="nav-item">
+
+                        <a class="nav-link" asp-controller="Review" asp-action="Index" asp-area="Manage" aria-expanded="false">
+                            <i class="icon-paper  menu-icon"></i>
+                            <span class="menu-title">Reviews</span>
+
+                        </a>
+                    </li>
+                       <li class="nav-item">
+
+                        <a class="nav-link" asp-controller="Account" asp-action="Index" asp-area="Manage" aria-expanded="false">
+                         <i class="icon-head menu-icon"></i>
+                            <span class="menu-title">Accounts</span>
+
+                        </a>
+                    </li>
+                    
                 </ul>
             </nav>
             <!-- partial -->

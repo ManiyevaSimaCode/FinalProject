@@ -1,26 +1,24 @@
-﻿@using SimRaMVC.Models
-
-@model AuthVM
+﻿
+@model LoginDto
 <div class="container py-8 py-lg-5 my-4">
-    <div class="row">
-        <div class="col-md-6">
+    <div class="row justify-content-center">
+        <div class="col-md-6 pt-4 mt-3 mt-md-0">
             <div class="card border-0 shadow">
                 <div class="card-body">
                     <h2 class="h4 mb-1">Sign in</h2>
-                    <hr>
-                    <h3 class="fs-base pt-4 pb-2">Or using form below</h3>
-                    <form asp-action="Login" method="post" asp-controller="Auth" class="needs-validation tab-pane fade show active" autocomplete="off" novalidate id="signin-tab">
+               
+                    <form asp-action="Login" method="post" asp-controller="Auth" class="needs-validation tab-pane" autocomplete="off" id="signin-tab">
                         <div class="mb-3">
-                            <label asp-for="@Model.LoginDto.Email" class="form-label" for="si-email" >Email address</label>
-                            <input asp-for="@Model.LoginDto.Email" class="form-control" type="email" id="si-email" value=@Model.RegisterDto.Email placeholder="johndoe@example.com" required>
-                            <span asp-validation-for="@Model.LoginDto.Email" class="invalid-feedback">Please provide a valid email address.</span>
+                            <label asp-for="@Model.Email" class="form-label" for="si-email" >Email address</label>
+                            <input asp-for="@Model.Email" class="form-control" type="email" id="si-email"  placeholder="johndoe@example.com" required>
+                            <span asp-validation-for="@Model.Email" class="invalid-feedback">Please provide a valid email address.</span>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="si-password">Password</label>
                             <div class="password-toggle">
-                                <input asp-for="@Model.LoginDto.Password" class="form-control" type="password" id="si-password" required>
-                                <label asp-for="@Model.LoginDto.Password"  class="password-toggle-btn" aria-label="Show/hide password">
-                                    <input asp-for="@Model.LoginDto.Password" value=@Model.RegisterDto.Email class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                                <input asp-for="@Model.Password" class="form-control" type="password" id="si-password" required>
+                                <label asp-for="@Model.Password"  class="password-toggle-btn" aria-label="Show/hide password">
+                                    <input asp-for="@Model.Password"  class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
                                 </label>
                             </div>
                         </div>

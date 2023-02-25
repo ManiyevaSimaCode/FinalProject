@@ -1,5 +1,6 @@
 ﻿using Entities.DTOs.Account;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace BLL.Concrete
 {
@@ -21,28 +22,29 @@ namespace BLL.Concrete
 
         public async Task<bool>Login(LoginDto loginDto)
         {
-            AppUser appUser = await _userManager.FindByEmailAsync(loginDto.Email);
-            if (appUser is null)
+            if (string.IsNullOrWhiteSpace(loginDto.UserName)||string.IsNullOrWhiteSpace(loginDto.Password))
             {
                 _ActionContextAccessor.ActionContext.ModelState.AddModelError("", "Email or Password is incorrect!");
                 return false;
             }
-            else
+            AppUser appUser = await _userManager.FindByEmailAsync(loginDto.Email);
+
+            if (appUser is null)
             {
-                SignInResult result = await _signInManager.CheckPasswordSignInAsync(appUser, loginDto.Password, true);
-                return true;
+                if (string.IsNullOrWhiteSpace(loginDto.UserName) || string.IsNullOrWhiteSpace(loginDto.Password))
+                {
+                    _ActionContextAccessor.ActionContext.ModelState.AddModelError("", "Email or Password is incorrect!");
+                    return false;
+                }
             }
+            SignInResult result=await _signInManager.PasswordSignInAsync(appUser, loginDto.Password,loginDto.RememberMe,true);
+                return true;
+            
         }
         public async Task<bool> Register(RegisterDto registerDto)
         {
-            AppUser existUser = await _userManager.FindByNameAsync(registerDto.UserName);
-            if (existUser is not null)
-            {
-                _ActionContextAccessor.ActionContext.ModelState.AddModelError("", "This UserName is already exist!");
-
-                return false;
-            }//this email is already exist?
-
+            //AppUser existUser = await _userManager.FindByEmailAsync(registerDto.Email);
+    
             AppUser appUser = new AppUser
             {
                 UserName = registerDto.UserName,
@@ -61,12 +63,15 @@ namespace BLL.Concrete
             IdentityResult result = await _userManager.CreateAsync(appUser, registerDto.Password);
             if (!result.Succeeded)
             {
-                _ActionContextAccessor.ActionContext.ModelState.AddModelError("", "Login or Password is incorrect!");
+                foreach (var item in result.Errors)
+                {
+                    _ActionContextAccessor.ActionContext.ModelState.AddModelError("", item.Description);
+                    return false;
 
-                return false;
+                }
             }
 
-            await _userManager.AddToRoleAsync(appUser, "Admin");
+            await _userManager.AddToRoleAsync(appUser, "User");
             return true;
 
 

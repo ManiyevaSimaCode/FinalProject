@@ -60,6 +60,11 @@ namespace BLL.Concrete
             return _mapper.Map<List<CompanyGetDto>>(companies);
         }
 
+        public Task<List<CompanyGetDto>> GetAllPaginateAsync(int page, int size)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<CompanyGetDto> GetByIdAsync(int id)
         {
             Company company = await _unitOfWork.CompanyRepository.GetAsync(c => c.Id == id && !c.isDeleted);

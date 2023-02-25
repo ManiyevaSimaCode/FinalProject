@@ -1,4 +1,5 @@
-﻿using Entities.DTOs.Parameter;
+﻿using Entities.DTOs.Paginate;
+using Entities.DTOs.Parameter;
 
 namespace BLL.Concrete
 {
@@ -39,6 +40,11 @@ namespace BLL.Concrete
                 throw new NotFoundException(Messages.ParameterNotFound);
             }
             return _mapper.Map<List<ParameterGetDto>>(parameters);
+        }
+
+        public Task<List<PaginateDto<ParameterGetDto>>> GetAllPaginateAsync(int page, int size)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<ParameterGetDto> GetByIdAsync(int id)

@@ -1,6 +1,7 @@
 ﻿using Entities.Concrete;
 using Entities.DTOs.Account;
 using Entities.DTOs.Company;
+using Entities.DTOs.Paginate;
 using Entities.DTOs.Parameter;
 using Entities.DTOs.Product;
 using Entities.DTOs.ProductParameter;
@@ -49,7 +50,10 @@ namespace BLL.Utilities.Profiles
             CreateMap<ProductParameter, ProductParameterGetDto>().ReverseMap();
             CreateMap<ProductParameterGetDto, ProductParameter>().ReverseMap();
 
+            //Paginate
 
+
+            CreateMap<Category,PaginateDto<Category>>().ReverseMap();
 
         }
     }

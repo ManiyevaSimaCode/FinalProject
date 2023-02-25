@@ -1,10 +1,12 @@
-﻿using Entities.DTOs.SubCategory;
+﻿using Entities.DTOs.Paginate;
+using Entities.DTOs.SubCategory;
 
 namespace BLL.Abstract
 {
     public interface ISubCategoryService
     {
         Task<List<SubCategoryGetDto>> GetAllAsync();
+        Task<List<PaginateDto<SubCategoryGetDto>>> GetAllPaginateAsync(int page, int size);
         Task<SubCategoryGetDto> GetByIdAsync(int id);
         Task<SubCategoryGetDto> GetByNameAsync(string Name);
         

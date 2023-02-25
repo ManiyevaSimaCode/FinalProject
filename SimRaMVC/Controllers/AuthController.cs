@@ -23,6 +23,12 @@ namespace SimRaMVC.Controllers
         //    return Json("ok");
         //}
 
+
+        public IActionResult Register()
+        {
+            return View();
+        }
+
         [HttpPost]
         public async Task<IActionResult> Register(RegisterDto registerDto)
         {
@@ -30,10 +36,10 @@ namespace SimRaMVC.Controllers
             var result = await _authService.Register(registerDto);
             if (!result)
             {
-                return RedirectToAction("Register",registerDto);
+                return View(registerDto);
             }
 
-            return RedirectToAction("Login",registerDto);
+            return RedirectToAction(nameof(Login));
         }
 
         public IActionResult Login()
@@ -55,9 +61,10 @@ namespace SimRaMVC.Controllers
         }
 
 
-        [HttpGet]
-        public IActionResult SignOut()
+        [HttpPost]
+        public async Task<IActionResult> SignOut()
         {
+            await _authService.SignOut();
             return RedirectToAction("Login", "Auth");
         }
 

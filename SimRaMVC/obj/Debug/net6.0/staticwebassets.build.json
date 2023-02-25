@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DMMS4v1n4ZC8VRTBuAdkpJkhfVO67hoLVl5kS5xv9DE=",
+  "Hash": "n9vqe1mKRkeafH32TjgU2t91Zm59ae/uRrWAie6pLqs=",
   "Source": "SimRaMVC",
   "BasePath": "_content/SimRaMVC",
   "Mode": "Default",
@@ -37213,6 +37213,23 @@
       "OriginalItemSpec": "wwwroot\\Assets\\img\\shop\\brands\\5e7b45c7-cf0b-4142-bb41-4c6a20152711Untitled design.png"
     },
     {
+      "Identity": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\SimRaMVC\\wwwroot\\Assets\\img\\shop\\brands\\619c1ed4-bd83-4b9b-b73c-6af1534856ccUntitled design.png",
+      "SourceId": "SimRaMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\SimRaMVC\\wwwroot\\",
+      "BasePath": "_content/SimRaMVC",
+      "RelativePath": "Assets/img/shop/brands/619c1ed4-bd83-4b9b-b73c-6af1534856ccUntitled design.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Assets\\img\\shop\\brands\\619c1ed4-bd83-4b9b-b73c-6af1534856ccUntitled design.png"
+    },
+    {
       "Identity": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\SimRaMVC\\wwwroot\\Assets\\img\\shop\\brands\\68a937ae-a9dc-441c-bd1b-1f40774c9732logo-footer.png",
       "SourceId": "SimRaMVC",
       "SourceType": "Discovered",
@@ -37279,6 +37296,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Assets\\img\\shop\\brands\\aa67dee1-758b-47e0-acd7-c6bf6d99eff9Untitled design.png"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\SimRaMVC\\wwwroot\\Assets\\img\\shop\\brands\\d2041276-2fc6-4b5a-9234-d3d53c134675Untitled design.png",
+      "SourceId": "SimRaMVC",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\SimRaMVC\\wwwroot\\",
+      "BasePath": "_content/SimRaMVC",
+      "RelativePath": "Assets/img/shop/brands/d2041276-2fc6-4b5a-9234-d3d53c134675Untitled design.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Assets\\img\\shop\\brands\\d2041276-2fc6-4b5a-9234-d3d53c134675Untitled design.png"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\SimRaMVC\\wwwroot\\Assets\\img\\shop\\brands\\dd570476-15b3-496f-89a7-a8218306b407880357340-ozgun.png",

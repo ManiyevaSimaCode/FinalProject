@@ -44,7 +44,7 @@ namespace Core.DAL.Concrete
             IQueryable<TEntity> query = GetQuery(includes);
             return exp is null
     ? await query.Skip((page - 1) * size).Take(size).ToListAsync()
-    : await query.Where(exp).Skip((page - 1) * size).Take(size).ToListAsync();
+    : await query.Where(exp).Skip((page - 1) * size).Take(size).ToListAsync();//orderByDescending
 
         }
 

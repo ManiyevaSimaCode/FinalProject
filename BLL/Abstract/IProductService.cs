@@ -1,4 +1,5 @@
-﻿using Entities.DTOs.Product;
+﻿using Entities.DTOs.Paginate;
+using Entities.DTOs.Product;
 
 namespace BLL.Abstract
 {
@@ -6,6 +7,7 @@ namespace BLL.Abstract
     {
 
         Task<List<ProductGetDto>> GetAllAsync();
+        Task<List<PaginateDto<ProductGetDto>>> GetAllPaginateAsync(int page, int size);
         Task<ProductGetDto> GetByIdAsync(int id);
         Task<ProductGetDto> GetByNameAsync(string Name);
         Task CreateAsync(ProductPostDto productPostDto);

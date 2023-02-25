@@ -1,4 +1,5 @@
-﻿using Entities.DTOs.Product;
+﻿using Entities.DTOs.Paginate;
+using Entities.DTOs.Product;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 
@@ -119,6 +120,9 @@ namespace BLL.Concrete
             return product;
         }
 
-      
+        public Task<List<PaginateDto<ProductGetDto>>> GetAllPaginateAsync(int page, int size)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

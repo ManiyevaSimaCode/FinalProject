@@ -1,4 +1,5 @@
-﻿using Entities.DTOs.SubCategory;
+﻿using Entities.DTOs.Paginate;
+using Entities.DTOs.SubCategory;
 
 namespace BLL.Concrete;
 
@@ -42,6 +43,12 @@ public class CategoryManager : ICategoryService
         return _mapper.Map<List<CategoryGetDto>>(categories);
     }
 
+    public async Task<List<PaginateDto<CategoryGetDto>>> GetAllPaginateAsync(int page,int size)
+    {
+        List<Category> categories = await _unitOfWork.CategoryRepository.GetAllPaginateAsync(page,size,c=>!c.isDeleted);
+        return _mapper.Map<List<PaginateDto<CategoryGetDto>>>(categories);
+    }
+
     public async Task<CategoryGetDto> GetByIdAsync(int id)
     {
         Category category = await _unitOfWork.CategoryRepository.GetAsync(c => c.Id == id && !c.isDeleted);
@@ -80,4 +87,8 @@ public class CategoryManager : ICategoryService
 
 
     }
+    //private async Task<int> PageCount()
+    //{
+    //    int categoryCount= await 
+    //}
 }

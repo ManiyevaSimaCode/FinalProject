@@ -1,4 +1,5 @@
-﻿@model SubCategoryUpdateDto
+﻿@using Entities.DTOs.SubCategoryParameter
+@model SubCategoryUpdateDto
 @{
     ViewData["Title"] = "Update";
     Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
@@ -10,7 +11,7 @@
         <div class="card">
             <div class="card-body">
                 <h1 class="card-title">Update SubCategory</h1>
-                <div class="text text-danger" asp-validation-summary="ModelOnly"></div>
+                @*<div class="text text-danger" asp-validation-summary="ModelOnly"></div>*@
                 <form class="forms-sample" method="post" action="Update">
                     <div class="form-group">
                         <input  hidden asp-for="@Model.subCategoryGetDto.Id"/>
@@ -18,13 +19,17 @@
                         <input type="text" class="form-control" asp-for="@Model.subCategoryPostDto.Name" placeholder="SubCategory Name" value="@Model.subCategoryGetDto.Name">
                         <span class="mt-2 text text-danger" asp-validation-for="@Model.subCategoryPostDto.Name"></span>
                     </div>
+                       <div class="form-group">
+                        <input type="text" class="form-control"  value="@Model.subCategoryGetDto.Category.Name" readonly>
+                        <span class="mt-2 text text-danger" asp-validation-for="@Model.subCategoryPostDto.Name"></span>
+                    </div>
                     <div class="form-group mt-4">
                         <div class="btn-group dropdown mt-4">
-                            <label asp-for=@Model.subCategoryPostDto.CategoryId>>Categories</label>
-                            <select asp-for=@Model.subCategoryPostDto.CategoryId>class="form-select form-select-sm">
+                            <label asp-for=@Model.subCategoryPostDto.CategoryId>Categories</label>
+                            <select  asp-for=@Model.subCategoryPostDto.CategoryId>class="form-select form-select-sm">
                                 @foreach (CategoryGetDto category in ViewBag.Categories)
                                 {
-                                    <option value="@category.Id">@category.Name</option>
+                                    <option selected value="@category.Id" >@category.Name </option>
 
                                 }
                             </select>
