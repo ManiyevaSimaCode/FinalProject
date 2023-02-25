@@ -14,49 +14,66 @@ namespace BLL.Concrete
 
         public AuthManager(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<AppUser> signInManager, IActionContextAccessor actionContextAccessor, IMapper mapper)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
-            _ActionContextAccessor = actionContextAccessor;
-            _mapper = mapper;
+            this._userManager = userManager;
+            this._signInManager = signInManager;
+            this._ActionContextAccessor = actionContextAccessor;
+            this._mapper = mapper;
+        }
+        public AuthManager()
+        {
+                
         }
 
-        public async Task<bool>Login(LoginDto loginDto)
+        public async Task<bool> Login(LoginDto loginDto)
         {
-            if (string.IsNullOrWhiteSpace(loginDto.UserName)||string.IsNullOrWhiteSpace(loginDto.Password))
+            if (string.IsNullOrWhiteSpace(loginDto.Email) || string.IsNullOrWhiteSpace(loginDto.Password))
             {
                 _ActionContextAccessor.ActionContext.ModelState.AddModelError("", "Email or Password is incorrect!");
                 return false;
             }
+            // FindByEmailAsync
             AppUser appUser = await _userManager.FindByEmailAsync(loginDto.Email);
-
-            if (appUser is null)
+       
+            if (appUser == null)
             {
-                if (string.IsNullOrWhiteSpace(loginDto.UserName) || string.IsNullOrWhiteSpace(loginDto.Password))
+
+                _ActionContextAccessor.ActionContext.ModelState.AddModelError("", "Email or Password is incorrect!");
+                return false;
+
+            }
+            SignInResult result = await _signInManager.PasswordSignInAsync(appUser, loginDto.Password, loginDto.RememberMe, true);
+            if (!result.Succeeded)
+            {
+                if (result.IsLockedOut)
                 {
-                    _ActionContextAccessor.ActionContext.ModelState.AddModelError("", "Email or Password is incorrect!");
+                    _ActionContextAccessor.ActionContext.ModelState.AddModelError("", "Your account is blocked for 5 minutes");
                     return false;
                 }
+
+                _ActionContextAccessor.ActionContext.ModelState.AddModelError("", "Email or Password is incorrect!");
+                return false;
+
+
             }
-            SignInResult result=await _signInManager.PasswordSignInAsync(appUser, loginDto.Password,loginDto.RememberMe,true);
-                return true;
-            
+            return true;
+
         }
         public async Task<bool> Register(RegisterDto registerDto)
         {
             //AppUser existUser = await _userManager.FindByEmailAsync(registerDto.Email);
-    
+
             AppUser appUser = new AppUser
             {
                 UserName = registerDto.UserName,
                 Email = registerDto.Email,
-                Description="",
-                FacebookUrl="",
-                InstagramUrl="",
-                TwitterUrl="",
-                LinkedinUrl="",
-                ImagePath="",
-                isCompany=false,
-                
+                Description = "",
+                FacebookUrl = "",
+                InstagramUrl = "",
+                TwitterUrl = "",
+                LinkedinUrl = "",
+                ImagePath = "",
+                isCompany = false,
+
 
 
             };

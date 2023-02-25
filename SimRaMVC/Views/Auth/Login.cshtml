@@ -8,19 +8,21 @@
                     <h2 class="h4 mb-1">Sign in</h2>
                
                     <form asp-action="Login" method="post" asp-controller="Auth" class="needs-validation tab-pane" autocomplete="off" id="signin-tab">
+                        <div asp-validation-summary="ModelOnly"></div>
                         <div class="mb-3">
                             <label asp-for="@Model.Email" class="form-label" for="si-email" >Email address</label>
                             <input asp-for="@Model.Email" class="form-control" type="email" id="si-email"  placeholder="johndoe@example.com" required>
-                            <span asp-validation-for="@Model.Email" class="invalid-feedback">Please provide a valid email address.</span>
+                            <span asp-validation-for="@Model.Email"></span>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="si-password">Password</label>
                             <div class="password-toggle">
                                 <input asp-for="@Model.Password" class="form-control" type="password" id="si-password" required>
-                                <label asp-for="@Model.Password"  class="password-toggle-btn" aria-label="Show/hide password">
-                                    <input asp-for="@Model.Password"  class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
+                                <label  class="password-toggle-btn" aria-label="Show/hide password">
+                                    <input  class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
                                 </label>
                             </div>
+                           
                         </div>
                         <div class="mb-3 d-flex flex-wrap justify-content-between">
                             <div class="form-check mb-2">
