@@ -36,3 +36,60 @@ C:\Users\User\Desktop\SimRaFinalProject\DAL\obj\Debug\net6.0\refint\DAL.dll
 C:\Users\User\Desktop\SimRaFinalProject\DAL\obj\Debug\net6.0\DAL.pdb
 C:\Users\User\Desktop\SimRaFinalProject\DAL\obj\Debug\net6.0\DAL.genruntimeconfig.cache
 C:\Users\User\Desktop\SimRaFinalProject\DAL\obj\Debug\net6.0\ref\DAL.dll
+C:\Users\Rafael Mehdiyev\Desktop\FinalProject-master\DAL\bin\Debug\net6.0\DAL.deps.json
+C:\Users\Rafael Mehdiyev\Desktop\FinalProject-master\DAL\bin\Debug\net6.0\DAL.runtimeconfig.json
+C:\Users\Rafael Mehdiyev\Desktop\FinalProject-master\DAL\bin\Debug\net6.0\DAL.dll
+C:\Users\Rafael Mehdiyev\Desktop\FinalProject-master\DAL\bin\Debug\net6.0\DAL.pdb
+C:\Users\Rafael Mehdiyev\Desktop\FinalProject-master\DAL\bin\Debug\net6.0\Core.dll
+C:\Users\Rafael Mehdiyev\Desktop\FinalProject-master\DAL\bin\Debug\net6.0\Entities.dll
+C:\Users\Rafael Mehdiyev\Desktop\FinalProject-master\DAL\bin\Debug\net6.0\Core.pdb
+C:\Users\Rafael Mehdiyev\Desktop\FinalProject-master\DAL\bin\Debug\net6.0\Entities.pdb
+C:\Users\Rafael Mehdiyev\Desktop\FinalProject-master\DAL\obj\Debug\net6.0\DAL.csproj.AssemblyReference.cache
+C:\Users\Rafael Mehdiyev\Desktop\FinalProject-master\DAL\obj\Debug\net6.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Rafael Mehdiyev\Desktop\FinalProject-master\DAL\obj\Debug\net6.0\DAL.AssemblyInfoInputs.cache
+C:\Users\Rafael Mehdiyev\Desktop\FinalProject-master\DAL\obj\Debug\net6.0\DAL.AssemblyInfo.cs
+C:\Users\Rafael Mehdiyev\Desktop\FinalProject-master\DAL\obj\Debug\net6.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Rafael Mehdiyev\Desktop\FinalProject-master\DAL\obj\Debug\net6.0\DAL.csproj.CopyComplete
+C:\Users\Rafael Mehdiyev\Desktop\FinalProject-master\DAL\obj\Debug\net6.0\DAL.dll
+C:\Users\Rafael Mehdiyev\Desktop\FinalProject-master\DAL\obj\Debug\net6.0\refint\DAL.dll
+C:\Users\Rafael Mehdiyev\Desktop\FinalProject-master\DAL\obj\Debug\net6.0\DAL.pdb
+C:\Users\Rafael Mehdiyev\Desktop\FinalProject-master\DAL\obj\Debug\net6.0\DAL.genruntimeconfig.cache
+C:\Users\Rafael Mehdiyev\Desktop\FinalProject-master\DAL\obj\Debug\net6.0\ref\DAL.dll
+C:\Users\User\Desktop\FinalProject-master\DAL\bin\Debug\net6.0\DAL.deps.json
+C:\Users\User\Desktop\FinalProject-master\DAL\bin\Debug\net6.0\DAL.runtimeconfig.json
+C:\Users\User\Desktop\FinalProject-master\DAL\bin\Debug\net6.0\DAL.dll
+C:\Users\User\Desktop\FinalProject-master\DAL\bin\Debug\net6.0\DAL.pdb
+C:\Users\User\Desktop\FinalProject-master\DAL\bin\Debug\net6.0\Core.dll
+C:\Users\User\Desktop\FinalProject-master\DAL\bin\Debug\net6.0\Entities.dll
+C:\Users\User\Desktop\FinalProject-master\DAL\bin\Debug\net6.0\Core.pdb
+C:\Users\User\Desktop\FinalProject-master\DAL\bin\Debug\net6.0\Entities.pdb
+C:\Users\User\Desktop\FinalProject-master\DAL\obj\Debug\net6.0\DAL.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\FinalProject-master\DAL\obj\Debug\net6.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\FinalProject-master\DAL\obj\Debug\net6.0\DAL.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\FinalProject-master\DAL\obj\Debug\net6.0\DAL.AssemblyInfo.cs
+C:\Users\User\Desktop\FinalProject-master\DAL\obj\Debug\net6.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\FinalProject-master\DAL\obj\Debug\net6.0\DAL.csproj.CopyComplete
+C:\Users\User\Desktop\FinalProject-master\DAL\obj\Debug\net6.0\DAL.dll
+C:\Users\User\Desktop\FinalProject-master\DAL\obj\Debug\net6.0\refint\DAL.dll
+C:\Users\User\Desktop\FinalProject-master\DAL\obj\Debug\net6.0\DAL.pdb
+C:\Users\User\Desktop\FinalProject-master\DAL\obj\Debug\net6.0\DAL.genruntimeconfig.cache
+C:\Users\User\Desktop\FinalProject-master\DAL\obj\Debug\net6.0\ref\DAL.dll
+C:\Users\User\Desktop\SimRaFinalProjectLastV\DAL\bin\Debug\net6.0\DAL.deps.json
+C:\Users\User\Desktop\SimRaFinalProjectLastV\DAL\bin\Debug\net6.0\DAL.runtimeconfig.json
+C:\Users\User\Desktop\SimRaFinalProjectLastV\DAL\bin\Debug\net6.0\DAL.dll
+C:\Users\User\Desktop\SimRaFinalProjectLastV\DAL\bin\Debug\net6.0\DAL.pdb
+C:\Users\User\Desktop\SimRaFinalProjectLastV\DAL\bin\Debug\net6.0\Core.dll
+C:\Users\User\Desktop\SimRaFinalProjectLastV\DAL\bin\Debug\net6.0\Entities.dll
+C:\Users\User\Desktop\SimRaFinalProjectLastV\DAL\bin\Debug\net6.0\Core.pdb
+C:\Users\User\Desktop\SimRaFinalProjectLastV\DAL\bin\Debug\net6.0\Entities.pdb
+C:\Users\User\Desktop\SimRaFinalProjectLastV\DAL\obj\Debug\net6.0\DAL.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\SimRaFinalProjectLastV\DAL\obj\Debug\net6.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\SimRaFinalProjectLastV\DAL\obj\Debug\net6.0\DAL.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\SimRaFinalProjectLastV\DAL\obj\Debug\net6.0\DAL.AssemblyInfo.cs
+C:\Users\User\Desktop\SimRaFinalProjectLastV\DAL\obj\Debug\net6.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\SimRaFinalProjectLastV\DAL\obj\Debug\net6.0\DAL.csproj.CopyComplete
+C:\Users\User\Desktop\SimRaFinalProjectLastV\DAL\obj\Debug\net6.0\DAL.dll
+C:\Users\User\Desktop\SimRaFinalProjectLastV\DAL\obj\Debug\net6.0\refint\DAL.dll
+C:\Users\User\Desktop\SimRaFinalProjectLastV\DAL\obj\Debug\net6.0\DAL.pdb
+C:\Users\User\Desktop\SimRaFinalProjectLastV\DAL\obj\Debug\net6.0\DAL.genruntimeconfig.cache
+C:\Users\User\Desktop\SimRaFinalProjectLastV\DAL\obj\Debug\net6.0\ref\DAL.dll
