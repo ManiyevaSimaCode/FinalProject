@@ -14,14 +14,10 @@ namespace BLL.Concrete
 
         public AuthManager(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<AppUser> signInManager, IActionContextAccessor actionContextAccessor, IMapper mapper)
         {
-            this._userManager = userManager;
-            this._signInManager = signInManager;
-            this._ActionContextAccessor = actionContextAccessor;
-            this._mapper = mapper;
-        }
-        public AuthManager()
-        {
-                
+            _userManager = userManager;
+            _signInManager = signInManager;
+            _ActionContextAccessor = actionContextAccessor;
+            _mapper = mapper;
         }
 
         public async Task<bool> Login(LoginDto loginDto)
@@ -33,7 +29,7 @@ namespace BLL.Concrete
             }
             // FindByEmailAsync
             AppUser appUser = await _userManager.FindByEmailAsync(loginDto.Email);
-       
+
             if (appUser == null)
             {
 
@@ -62,22 +58,23 @@ namespace BLL.Concrete
         {
             //AppUser existUser = await _userManager.FindByEmailAsync(registerDto.Email);
 
-            AppUser appUser = new AppUser
-            {
-                UserName = registerDto.UserName,
-                Email = registerDto.Email,
-                Description = "",
-                FacebookUrl = "",
-                InstagramUrl = "",
-                TwitterUrl = "",
-                LinkedinUrl = "",
-                ImagePath = "",
-                isCompany = false,
+            //AppUser appUser = new AppUser
+            //{
+            //    UserName = registerDto.UserName,
+            //    Email = registerDto.Email,
+            //    Description = "",
+            //    FacebookUrl = "",
+            //    InstagramUrl = "",
+            //    TwitterUrl = "",
+            //    LinkedinUrl = "",
+            //    ImagePath = "",
+            //    isCompany = false,
 
 
 
-            };
-            IdentityResult result = await _userManager.CreateAsync(appUser, registerDto.Password);
+            //};
+            
+            var result = await _userManager.CreateAsync(_mapper.Map<AppUser>(registerDto), registerDto.Password);
             if (!result.Succeeded)
             {
                 foreach (var item in result.Errors)
@@ -88,7 +85,8 @@ namespace BLL.Concrete
                 }
             }
 
-            await _userManager.AddToRoleAsync(appUser, "User");
+            //await _userManager.AddToRoleAsync(_mapper.Map<AppUser>(registerDto), "User");
+            await _userManager.AddToRoleAsync(_mapper.Map<AppUser>(registerDto), "Admin");
             return true;
 
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mVB+a+xq1YJeUVXx2/OTLPNd9d+MCC4vqk+6EOkfD12bm/G9SNoVq06GsIg8xQs2GcRRvKY5HFvsXzCM4TMNlA==",
+  "dgSpecHash": "4djwk0g8lVkoBevTvTHEn+Snlj+kI9e54KRORor5M2is/7j/mhPtiC4pmGKpQvUp4hb+2que/jxF2cFxjUGmjQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\BLL\\BLL.csproj",
+  "projectFilePath": "C:\\Users\\User\\Desktop\\SimRaFinalProjectLastV\\BLL\\BLL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

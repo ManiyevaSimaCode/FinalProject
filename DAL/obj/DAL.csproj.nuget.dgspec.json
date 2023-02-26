@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\SimRaFinalProject\\DAL\\DAL.csproj": {}
+    "C:\\Users\\User\\Desktop\\SimRaFinalProjectLastV\\DAL\\DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\SimRaFinalProject\\Core\\Core.csproj": {
+    "C:\\Users\\User\\Desktop\\SimRaFinalProjectLastV\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\SimRaFinalProjectLastV\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\Core\\Core.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\SimRaFinalProjectLastV\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\Core\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\SimRaFinalProjectLastV\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\User\\Desktop\\SimRaFinalProject\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\Entities\\Entities.csproj"
+              "C:\\Users\\User\\Desktop\\SimRaFinalProjectLastV\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\SimRaFinalProjectLastV\\Entities\\Entities.csproj"
               }
             }
           }
@@ -80,14 +80,14 @@
         }
       }
     },
-    "C:\\Users\\User\\Desktop\\SimRaFinalProject\\DAL\\DAL.csproj": {
+    "C:\\Users\\User\\Desktop\\SimRaFinalProjectLastV\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\SimRaFinalProjectLastV\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\DAL\\DAL.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\SimRaFinalProjectLastV\\DAL\\DAL.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\DAL\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\SimRaFinalProjectLastV\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -104,8 +104,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\User\\Desktop\\SimRaFinalProject\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\Core\\Core.csproj"
+              "C:\\Users\\User\\Desktop\\SimRaFinalProjectLastV\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\SimRaFinalProjectLastV\\Core\\Core.csproj"
               }
             }
           }
@@ -164,14 +164,14 @@
         }
       }
     },
-    "C:\\Users\\User\\Desktop\\SimRaFinalProject\\Entities\\Entities.csproj": {
+    "C:\\Users\\User\\Desktop\\SimRaFinalProjectLastV\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\SimRaFinalProjectLastV\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\Entities\\Entities.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\SimRaFinalProjectLastV\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\Entities\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\SimRaFinalProjectLastV\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

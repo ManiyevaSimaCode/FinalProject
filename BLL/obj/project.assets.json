@@ -3340,11 +3340,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\BLL\\BLL.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\SimRaFinalProjectLastV\\BLL\\BLL.csproj",
       "projectName": "BLL",
-      "projectPath": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\BLL\\BLL.csproj",
+      "projectPath": "C:\\Users\\User\\Desktop\\SimRaFinalProjectLastV\\BLL\\BLL.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\BLL\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\SimRaFinalProjectLastV\\BLL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3361,8 +3361,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\User\\Desktop\\SimRaFinalProject\\DAL\\DAL.csproj": {
-              "projectPath": "C:\\Users\\User\\Desktop\\SimRaFinalProject\\DAL\\DAL.csproj"
+            "C:\\Users\\User\\Desktop\\SimRaFinalProjectLastV\\DAL\\DAL.csproj": {
+              "projectPath": "C:\\Users\\User\\Desktop\\SimRaFinalProjectLastV\\DAL\\DAL.csproj"
             }
           }
         }

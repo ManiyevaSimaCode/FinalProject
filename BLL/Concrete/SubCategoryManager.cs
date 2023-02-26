@@ -60,7 +60,7 @@ namespace BLL.Concrete
                 throw new NotFoundException(Messages.SubcategoryNotFound);
             }
             subcategory.isDeleted = true;
-            //await _unitOfWork.SaveAsync();
+            await _unitOfWork.SubCategoryRepository.SaveAsync();
         }
 
         public async Task<List<SubCategoryGetDto>> GetAllAsync()
@@ -98,35 +98,34 @@ namespace BLL.Concrete
         }
         public async Task UpdateAsync(int id, SubCategoryPostDto subCategoryPostDto)
         {
-            SubCategory subcategory = await _unitOfWork.SubCategoryRepository.GetAsync(c => c.Id == id && !c.isDeleted, "SubCategoryParameters");
+            SubCategory subcategory = await _unitOfWork.SubCategoryRepository.GetAsync(c => c.Id == id && !c.isDeleted,"Category","SubCategoryParameters.Parameter");
 
             subcategory.ParameterIds = subCategoryPostDto.ParameterIds;
 
 
-            subcategory.ParameterIds = subcategory.SubCategoryParameters.Select(c => c.ParameterId).ToList();
+            subcategory.ParameterIds = subCategoryPostDto.ParameterIds;
             subcategory.SubCategoryParameters.RemoveAll(sb => !subcategory.ParameterIds.Contains(sb.ParameterId));
 
 
-            foreach ( var parameterId in subcategory.ParameterIds
-                .Where(x=>!subcategory.SubCategoryParameters.Any(sb=>sb.ParameterId==x)))
+            foreach (var parameterId in subcategory.ParameterIds.Where(x => !subcategory.SubCategoryParameters.Any(sb => sb.ParameterId == x)))
             {
                 SubCategoryParameterGetDto subCategoryParameter = new SubCategoryParameterGetDto
                 {
                     ParameterId = parameterId,
-                   
-                    
                 };
                 subCategoryPostDto.SubCategoryParameters.Add(subCategoryParameter);
-               
             }
             subcategory.Name = subCategoryPostDto.Name;
             subcategory.CategoryId = subCategoryPostDto.CategoryId;
-            
-            
+            subcategory.Category = await _unitOfWork.CategoryRepository.GetAsync(c=>c.Id == subcategory.CategoryId);
+
+
+
             if (subcategory is null)
             {
                 throw new NotFoundException(Messages.SubcategoryNotFound);
             }
+            //subcategory = _mapper.Map<SubCategory>(subCategoryPostDto);
             _unitOfWork.SubCategoryRepository.Update(subcategory);
             _unitOfWork.SubCategoryRepository.SaveAsync();
             //await _unitOfWork.SaveAsync();

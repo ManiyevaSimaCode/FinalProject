@@ -40,7 +40,8 @@ namespace BLL.Utilities.Profiles
 
             //Auth
             CreateMap<AppUser, RegisterDto>().ReverseMap();
-
+            CreateMap<RegisterDto, AppUser>()
+                 .ForMember(dest => dest.Description, opt => opt.Ignore());
 
 
             //Product
@@ -53,7 +54,7 @@ namespace BLL.Utilities.Profiles
             //Paginate
 
 
-            CreateMap<Category,PaginateDto<Category>>().ReverseMap();
+            CreateMap<Category, PaginateDto<Category>>().ReverseMap();
 
         }
     }
