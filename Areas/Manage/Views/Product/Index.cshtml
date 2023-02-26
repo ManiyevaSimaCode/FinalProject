@@ -1,0 +1,97 @@
+﻿@model List<ProductGetDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">Products</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Product Name
+                            </th>
+                            <th>
+                                Product Parameters
+                            </th>
+                            <th>
+                                Saler Type
+                            </th>
+                            <th>
+                                Confirmed
+                            </th>
+                            <th>
+                                Forward Url
+                            </th>
+                            <th>
+                                Price
+                            </th>
+                            <th>
+                                Created Date
+                            </th>
+                            <th>
+                                Operations
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (ProductGetDto productGetDto in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @productGetDto.Name
+                                </td>
+                                <td>
+                                    <ul>
+                                        @for (var i = 0; i < @productGetDto.ProductParameters.Count; i++)
+                                        {
+                                            <li>
+                                                @productGetDto.ProductParameters[i].ParametrGetDto.Name
+                                            </li>
+                                        }
+                                    </ul>
+                                </td>
+                                <td>
+                                    @if (@productGetDto.isConfirmed)
+                                    {
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" checked>
+                                        </label>
+                                    }
+
+                                </td>
+                                <td>
+                                    @productGetDto.ForwardUrl
+                                </td>
+                                <td>
+                                    @productGetDto.Price
+                                </td>
+                                <td>
+                                    @productGetDto.CreatedDate
+                                </td>
+                                    <td>
+                                        <a type="button" asp-action="Update" asp-controller="Category" asp-area="Manage" asp-route-Id=@productGetDto.Id class="btn btn-primary btn-icon-text entityActionBtn">
+                                            <i class="ti-pencil btn-icon-prepend"></i>
+                                        </a>
+
+                                        <a type="button" asp-action="Remove" asp-controller="Category" asp-area="Manage" asp-route-Id=@productGetDto.Id class="btn btn-danger btn-icon-text sweet-delete entityActionBtn">
+                                            <i class="ti-trash btn-icon-prepend"></i>
+                                        </a>
+                                    </td>
+
+                            </tr>
+
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

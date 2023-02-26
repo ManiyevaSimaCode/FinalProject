@@ -1,0 +1,79 @@
+﻿@using Entities.DTOs.SubCategoryParameter
+@model List<SubCategoryGetDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">SubCategories</h2>
+            <a type="button" asp-action="Create" asp-controller="Subcategory" asp-area="Manage" class="btn btn-primary btn-icon-text ml-auto">
+                <i class="ti-plus btn-icon-prepend"></i>Create
+            </a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                SubCategory Name
+                            </th>
+                            <th>
+                                Parameters
+                            </th>
+                            <th>
+                                Created Date
+                            </th>
+                            <th>
+                                Operations
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (SubCategoryGetDto subCategoryGetDto in Model)
+                        {
+
+                            <tr>
+                                <td>
+                                    @subCategoryGetDto.Name
+                                </td>
+                                <td> 
+                                    <ul>
+                                   @for (var i = 0; i < @subCategoryGetDto.SubCategoryParameters.Count; i++)
+                                   {
+                                        <li>
+                                            @subCategoryGetDto.SubCategoryParameters[i].Parameter.Name
+                                        </li>     
+                                   }
+                                     </ul>
+                                </td>
+                                <td>
+                                    @subCategoryGetDto.CreatedDate
+                                </td>
+
+                                <td>
+                                    <a type="button" asp-action="Update" asp-controller="SubCategory" asp-area="Manage" asp-route-Id=@subCategoryGetDto.Id class="btn btn-primary btn-icon-text entityActionBtn">
+                                        <i class="ti-pencil btn-icon-prepend"></i>
+
+                                    </a>
+
+                                    <a type="button" asp-action="Remove" asp-controller="SubCategory" asp-area="Manage" asp-route-Id=@subCategoryGetDto.Id class="btn btn-danger btn-icon-text sweet-delete entityActionBtn">
+                                        <i class="ti-trash btn-icon-prepend"></i>
+                                    </a>
+                                </td>
+
+                            </tr>
+
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

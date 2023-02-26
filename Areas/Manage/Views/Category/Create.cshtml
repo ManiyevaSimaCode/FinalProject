@@ -1,0 +1,30 @@
+﻿@model CategoryPostDto
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row justify-content-center">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title">Create Category</h1>
+                  <div class="text text-danger" asp-validation-summary="ModelOnly"></div>
+                <form class="forms-sample" method="post" action="Create" >
+                    <div class="form-group">
+                        <label  asp-for="@Model.Name">Name</label>
+                        <input  type="text" class="form-control"  asp-for="@Model.Name"  placeholder="Category Name">
+                         <span class="mt-2 text text-danger" asp-validation-for="@Model.Name"></span>
+                
+                        
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Create</button>
+                    <button class="btn btn-light" asp-action="Index">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

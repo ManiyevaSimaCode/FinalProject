@@ -1,0 +1,64 @@
+﻿@model CompanyUpdateDto
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row justify-content-center">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title">Create Company</h1>
+                  <div class="text text-danger" asp-validation-summary="ModelOnly"></div>
+                <form class="forms-sample" method="post" action="Update" enctype="multipart/form-data" >
+                     <input hidden asp-for="@Model.CompanyGetDto.Id" />
+                    <div class="form-group">
+                        <label  asp-for="@Model.CompanyPostDto.Name">Name</label>
+                        <input  type="text" class="form-control"  asp-for="@Model.CompanyPostDto.Name"  value="@Model.CompanyGetDto.Name" placeholder="Company Name">
+                         <span class="mt-2 text text-danger" asp-validation-for="@Model.CompanyPostDto.Name"></span>                
+                    </div>
+                       <div class="form-group">
+                        <label  asp-for="@Model.CompanyPostDto.Description">Description</label>
+                        <input  type="text" class="form-control"  asp-for="@Model.CompanyPostDto.Description"  value="@Model.CompanyGetDto.Description" placeholder="Description">
+                         <span class="mt-2 text text-danger" asp-validation-for="@Model.CompanyPostDto.Description"></span>
+                
+                        
+                    </div>
+                               <div class="form-group">
+                        <label  asp-for="@Model.CompanyPostDto.Description">Linkedin URL</label>
+                        <input  type="text" class="form-control"  asp-for="@Model.CompanyPostDto.LinkedinUrl" value="@Model.CompanyGetDto.LinkedinUrl"  placeholder="Linkedin URL"> 
+                    </div>
+                    
+                               <div class="form-group">
+                        <label  asp-for="@Model.CompanyPostDto.TwitterUrl">Twitter URL</label>
+                        <input  type="text" class="form-control"  asp-for="@Model.CompanyPostDto.TwitterUrl" value="@Model.CompanyGetDto.TwitterUrl''"   placeholder="Twitter URL">
+
+                    </div>
+                      <div class="form-group">
+                        <label  asp-for="@Model.CompanyPostDto.InstagramUrl">Instagram URL</label>
+                        <input  type="text" class="form-control"  asp-for="@Model.CompanyPostDto.InstagramUrl"  value="@Model.CompanyGetDto.InstagramUrl"  placeholder="Instagram URLL">
+
+                    </div>
+                      <div class="form-group">
+                        <label  asp-for="@Model.CompanyPostDto.FacebookUrl">Facebook URL</label>
+                        <input  type="text" class="form-control"  asp-for="@Model.CompanyPostDto.FacebookUrl" value="@Model.CompanyGetDto.FacebookUrl"  placeholder="Facebook URL">
+
+                    </div>
+                    <!-- Drag and drop file upload -->
+                    <img src="~/Assets//img/shop/brands/@Model.CompanyGetDto.ImagePath" width="150px" />
+            <div class="form-group">
+                        <div class="input-group col-xs-12">
+                            <input type="file" class="form-control file-upload-info" asp-for="@Model.CompanyPostDto.formFile" accept="image/*"  placeholder="Upload Image">
+  <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                           
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mr-2">Update</button>
+                    <button class="btn btn-light" asp-action="Index" asp-controller="Company">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

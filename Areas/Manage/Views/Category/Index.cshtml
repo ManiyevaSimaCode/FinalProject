@@ -1,0 +1,63 @@
+﻿@model List<CategoryGetDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">Categories</h2>
+            <a type="button" asp-action="Create" asp-controller="Category" asp-area="Manage" class="btn btn-primary btn-icon-text ml-auto">
+                <i class="ti-plus btn-icon-prepend"></i>Create
+            </a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Category Name
+                            </th>
+                            <th>
+                                Created Date
+                            </th>
+                            <th>
+                                Operations
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if(Model is not null){
+                            foreach (CategoryGetDto categoryGetDto in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @categoryGetDto.Name
+                                    </td>
+                                    <td>
+                                        @categoryGetDto.CreatedDate
+                                    </td>
+
+                                    <td>
+                                        <a type="button" asp-action="Update" asp-controller="Category" asp-area="Manage" asp-route-Id=@categoryGetDto.Id class="btn btn-primary btn-icon-text entityActionBtn">
+                                            <i class="ti-pencil btn-icon-prepend"></i>
+                                        </a>
+
+                                        <a type="button" asp-action="Remove" asp-controller="Category" asp-area="Manage" asp-route-Id=@categoryGetDto.Id class="btn btn-danger btn-icon-text sweet-delete entityActionBtn">
+                                            <i class="ti-trash btn-icon-prepend"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
