@@ -7,8 +7,8 @@ namespace Entities.DTOs.SubCategoryParameter
     {
         public int Id { get; set; }
         public int SubCategoryId { get; set; }
-        public SubCategoryGetDto  SubCategoryGetDto{ get; set; }
+        public SubCategoryGetDto  SubCategory{ get; set; }
         public int ParameterId { get; set; }
-        public ParameterGetDto parameterGetDto { get; set; }
+        public ParameterGetDto Parameter { get; set; }
     }
 }
